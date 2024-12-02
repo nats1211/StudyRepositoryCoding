@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World! c# new update");
+            Console.WriteLine("Kerby mamimigay pancit canton");
         }
     }
 }
