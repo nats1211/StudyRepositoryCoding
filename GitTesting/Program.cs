@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World! c# -nats updating");
+            Console.WriteLine("Hello, World! c# new update");
         }
     }
 }
