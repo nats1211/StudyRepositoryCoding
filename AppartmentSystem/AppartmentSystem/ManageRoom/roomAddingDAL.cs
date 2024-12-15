@@ -75,7 +75,7 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
-        public bool AddRoom( string roomNum, double roomPrice)
+        public bool AddRoom( string roomNum, double roomPrice, string tenantName)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -86,13 +86,14 @@ namespace AppartmentSystem.ManageRoom
                 try
                 {
                     string roomQuery = @"
-                    INSERT INTO room (room_id, room_price)
-                    VALUES (@room_id, @room_price)";
+                    INSERT INTO room (room_id, room_price, tenant_name)
+                    VALUES (@room_id, @room_price, @tenant_name)";
 
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
                         command.Parameters.AddWithValue("@room_price", roomPrice);
+                        command.Parameters.AddWithValue("@tenant_name", tenantName);
                         command.ExecuteNonQuery();
                     }                                  
                     transaction.Commit();
@@ -160,8 +161,7 @@ namespace AppartmentSystem.ManageRoom
 
         public bool EditRoom(string roomId, string tenantName, double room_price)
         {
-            string roomQuery = "UPDATE room SET room_price = @room_price WHERE room_id = @room_id";
-            
+            string roomQuery = @"UPDATE room SET room_price = @room_price, tenant_name = @tenant_name WHERE room_id = @room_id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -171,15 +171,15 @@ namespace AppartmentSystem.ManageRoom
 
                 try
                 {
+
                     using(SqlCommand roomCommand = new SqlCommand(roomQuery, connection, transaction))
                     {
                         roomCommand.Parameters.AddWithValue("@room_id",roomId);
                         roomCommand.Parameters.AddWithValue("@room_price", room_price);
+                        roomCommand.Parameters.AddWithValue("@tenant_name", tenantName);
                         roomCommand.ExecuteNonQuery();
                     }
-
-                    
-
+                
                     transaction.Commit();
                     return true;
                 }
@@ -199,11 +199,9 @@ namespace AppartmentSystem.ManageRoom
             string query = @"
             SELECT
             r.room_id as 'Room Number',
-            CONCAT(t.last_name, ' ', t.first_name, ' ', ISNULL(t.middle_name, '')) AS FullName,
-            r.room_price as 'Rent',
-            t.move_in as 'Move in'
-            FROM room r
-            LEFT JOIN tenant t ON r.room_id = t.room_id";
+            r.tenant_name as 'Name',
+            r.room_price as 'Rent'
+            FROM room r";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

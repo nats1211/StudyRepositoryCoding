@@ -91,6 +91,28 @@ namespace AppartmentSystem
                     try
                     {
 
+                        string deleteLeaseQuery = @"
+                        DELETE FROM LeaseDetails
+                        WHERE lease_id = @leaseNumber";
+
+                        using (var leaseCommand = new SqlCommand(deleteLeaseQuery, connection, transaction))
+                        {
+                            leaseCommand.Parameters.AddWithValue("@leaseNumber", leaseNumber);
+                            leaseCommand.ExecuteNonQuery();
+                        }
+
+                        string RoomQuery = @"
+                        UPDATE room
+                        SET
+                        tenant_name = NULL
+                        WHERE room_id = @roomId";
+
+                        using (var roomCommand = new SqlCommand(RoomQuery, connection, transaction))
+                        {
+                            roomCommand.Parameters.AddWithValue("@roomId", roomNumber);
+                            roomCommand.ExecuteNonQuery();
+                        }
+
                         string tenantQuery = @"
                         UPDATE tenant
                         SET
@@ -103,33 +125,13 @@ namespace AppartmentSystem
                             tenantCommand.ExecuteNonQuery();
                         }
 
-
-                        string deleteRoomQuery = @"
-                        DELETE FROM room
-                        WHERE room_id = @roomId";
-
-                        using (var roomCommand = new SqlCommand(deleteRoomQuery, connection, transaction))
-                        {
-                            roomCommand.Parameters.AddWithValue("@roomId", roomNumber);
-                            roomCommand.ExecuteNonQuery();
-                        }
-
-                        string deleteLeaseQuery = @"
-                        DELETE FROM LeaseDetails
-                        WHERE lease_id = @leaseNumber";
-
-                        using (var leaseCommand = new SqlCommand(deleteLeaseQuery, connection, transaction))
-                        {
-                            leaseCommand.Parameters.AddWithValue("@leaseNumber", leaseNumber);
-                            leaseCommand.ExecuteNonQuery();
-                        }
-
                         transaction.Commit();
                         return true;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         transaction.Rollback();
+                        MessageBox.Show(ex.Message);
                         return false;
                     }
                 }
@@ -169,7 +171,6 @@ namespace AppartmentSystem
                 
             }
         }
-
 
         public bool editRoom(string roomId, DateTime leaseStart, DateTime leaseEnd)
         {

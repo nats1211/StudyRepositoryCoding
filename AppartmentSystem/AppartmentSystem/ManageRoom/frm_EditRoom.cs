@@ -33,6 +33,7 @@ namespace AppartmentSystem.ManageRoom
         public frm_EditRoom()
         {
             InitializeComponent();
+            LoadComboBox();
             textBox1.ReadOnly = true;
             txt_editRoomtenant.ReadOnly = true;
         }
@@ -68,7 +69,7 @@ namespace AppartmentSystem.ManageRoom
                 DateTime dateTime = DateTime.Now;
 
                 string roomNumber = textBox1.Text;
-                string tenantName = txt_editRoomtenant.Text;
+                string tenantName = cb_TenantName.Text;
                 int rent = Convert.ToInt32(txt_editRoomprice.Text);
 
                 bool successEdit = add.EditRoom(roomNumber, tenantName, rent);
@@ -77,6 +78,7 @@ namespace AppartmentSystem.ManageRoom
                 if (successEdit)
                 {
                     MessageBox.Show("Succesfully edit", "Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     if(logs)
                     {
 
@@ -92,6 +94,17 @@ namespace AppartmentSystem.ManageRoom
 
                 throw;
             }
+        }
+
+        public void LoadComboBox()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            tenantDAL tenat = new tenantDAL(connectionString);
+
+            var tenantList = tenat.getTenant();
+            cb_TenantName.DisplayMember = "full_name";
+            cb_TenantName.ValueMember = "tenant_id";
+            cb_TenantName.DataSource = tenantList;
         }
 
         private void btn_editRoomBack_Click(object sender, EventArgs e)

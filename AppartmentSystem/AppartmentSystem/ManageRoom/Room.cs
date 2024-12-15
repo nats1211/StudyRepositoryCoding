@@ -73,7 +73,7 @@ namespace AppartmentSystem
             string query = @"
             SELECT
             r.room_id as 'Room Number',
-            CONCAT(t.last_name, ' ', t.first_name, ' ', ISNULL(t.middle_name, '')) AS FullName,
+            r.tenant_name as 'Name',
             r.room_price as 'Rent',
             t.move_in as 'Move in'
             FROM room r
@@ -105,7 +105,7 @@ namespace AppartmentSystem
                 DateTime moved_out = movedIn.AddMonths(1);
 
                 //eto yung kinuha yung process
-                bool success = add.AddRoom(roomNum,roomPrice);
+                bool success = add.AddRoom(roomNum,roomPrice, tenantName);
                 bool tenant = add.AddTenant(tenantName, roomNum, movedIn, moved_out);
 
 
@@ -306,7 +306,7 @@ namespace AppartmentSystem
             {
 
                 string roomNumber = dg_ManageRoom.Rows[rowIndex].Cells["Room Number"].Value.ToString();
-                string tenantName = dg_ManageRoom.Rows[rowIndex].Cells["FullName"].Value.ToString();
+                string tenantName = dg_ManageRoom.Rows[rowIndex].Cells["Name"].Value.ToString();
                 double roomPrice = Convert.ToDouble(dg_ManageRoom.Rows[rowIndex].Cells["Rent"].Value);
 
                 frm_EditRoom editForm = new frm_EditRoom();
@@ -346,7 +346,7 @@ namespace AppartmentSystem
             {
                 if (row.IsNewRow)
                 {
-                    string cellName = row.Cells["FullName"].Value?.ToString().Trim();
+                    string cellName = row.Cells["Name"].Value?.ToString().Trim();
                     if (selectedName.Equals(cellName, StringComparison.OrdinalIgnoreCase))
                     {
                         nameExists = true;
