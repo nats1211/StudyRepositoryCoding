@@ -70,13 +70,13 @@ namespace AppartmentSystem.Maintenance
                 }
                 else
                 {
-                    MessageBox.Show("Error has occured. Data has not been saved");
+                    validation();
                     return;
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error/Missing Data in fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                validation();
             }
         }
 
@@ -102,5 +102,38 @@ namespace AppartmentSystem.Maintenance
             this.Close();
         }
 
+        public bool validation()
+        {
+            string expenseType = cb_addExpenseType.Text;
+            string amount = txt_addAmount.Text;
+            string name = cb_roomaddMaintenance.Text;
+            string description = txt_addDescription.Text;
+
+            cb_roomaddMaintenance.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_addExpenseType.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            if(string.IsNullOrWhiteSpace(expenseType) )
+            {
+                MessageBox.Show("Expense type is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(amount))
+            {
+                MessageBox.Show("Amount is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("Name is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(description))
+            {
+                MessageBox.Show("Description is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
     }
 }

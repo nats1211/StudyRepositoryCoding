@@ -47,6 +47,8 @@ namespace AppartmentSystem
             dateTimePicker1.MinDate = DateTime.Now;
             LoadData();
             txt_RoomNo.Text = "";
+            txt_RoomNo.DropDownStyle = ComboBoxStyle.DropDownList;
+
             int w = Screen.PrimaryScreen.Bounds.Width;
             int h = Screen.PrimaryScreen.Bounds.Height;
 
