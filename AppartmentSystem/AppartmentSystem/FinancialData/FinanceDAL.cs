@@ -17,26 +17,55 @@ namespace AppartmentSystem
             connectionString = _connectionString;
         }
 
+        public bool paidLeaseMaintenance(string roomId)
+        {
+            using(var connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+
+                string query = @"DELETE FROM Expenses WHERE room_id = @room_id";
+
+                using(var command = new SqlCommand(query, connection))
+                {
+
+                    command.Parameters.AddWithValue("@room_id", roomId);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if(rowsAffected > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
         public DataTable getMaintenanceList()
         {
             DataTable table = new DataTable();
 
             string query = @"
             SELECT
-            t.room_id AS 'Room Number',
+            r.room_id AS 'Room Number',
+            r.tenant_name AS 'Name',
             SUM(ISNULL(m.Amount, 0)) AS 'Maintenance Cost',
             r.room_price AS 'Room Price'
             FROM
-            Expenses m
+            room r
             LEFT JOIN
-            tenant t ON m.room_id = t.room_id
+            tenant t ON t.room_id = r.room_id
             LEFT JOIN
-            room r ON t.room_id = r.room_id
+            Expenses m ON m.room_id = r.room_id
             GROUP BY
-            t.room_id,          
+            r.room_id,
+            r.tenant_name,
             r.room_price       
             ORDER BY   
-            t.room_id;";
+            r.room_id;";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

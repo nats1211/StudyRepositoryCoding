@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -66,14 +67,83 @@ namespace AppartmentSystem
 
         private void btn_fdEdit_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btn_fdPaid_Click(object sender, EventArgs e)
         {
 
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            FinanceDAL payment = new FinanceDAL(connectionString);
+            var selection = MessageBox.Show("Do you want to print receipt?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            string roomNumber = selectedRow.Cells["Room Number"].Value.ToString();
+            string tenantName = selectedRow.Cells["Name"].Value.ToString();
+            double roomPrice = Convert.ToDouble(selectedRow.Cells["Room Price"].Value);
+            double maintenanceCost = Convert.ToDouble(selectedRow.Cells["Maintenance Cost"].Value);
+            double totalCost = roomPrice + maintenanceCost;
+
+            if (selection == DialogResult.Yes)
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+
+                    PrintDocument printDoc = new PrintDocument();
+                    printDoc.PrintPage += (x, f) => PrintReceipt(f, roomNumber, tenantName, roomPrice, maintenanceCost, totalCost);
+
+                    PrintPreviewDialog previewDialog = new PrintPreviewDialog
+                    {
+                        Document = printDoc
+                    };
+                    previewDialog.ShowDialog();
+
+                    printDoc.Print();
+                    bool success = payment.paidLeaseMaintenance(roomNumber);
+                    LoadData();
+                }
+            }
+            else if (selection == DialogResult.No)
+            {
+                bool success = payment.paidLeaseMaintenance(roomNumber);
+                MessageBox.Show("Payment successfull", "", MessageBoxButtons.OK);
+                LoadData();
+            }
+            else
+            {
+                LoadData();
+                return;   
+            }
+
         }
 
+        private void PrintReceipt(PrintPageEventArgs e, string roomNumber, string tenantName, double roomPrice, double maintenanceCost, double totalCost)
+        {
+            Graphics g = e.Graphics;
+            Font font = new Font("Courier New", 12);
+            float yPosition = 10;
+            float lineHeight = font.GetHeight();
+
+            // Print the receipt content
+            g.DrawString("Uno Rental", font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("123 Store Address", font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("Phone: (123) 456-7890", font, Brushes.Black, 10, yPosition); yPosition += lineHeight * 2;
+
+            g.DrawString("Date: " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("--------------------------------", font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+
+            g.DrawString("Room Number: " + roomNumber, font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("Tenant Name: " + tenantName, font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("--------------------------------", font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+
+            g.DrawString("Room Price: $" + roomPrice.ToString("F2"), font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("Maintenance Cost: $" + maintenanceCost.ToString("F2"), font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("--------------------------------", font, Brushes.Black, 10, yPosition); yPosition += lineHeight;
+            g.DrawString("Total Cost: $" + totalCost.ToString("F2"), font, Brushes.Black, 10, yPosition); yPosition += lineHeight * 2;
+
+            g.DrawString("Thank you!", font, Brushes.Black, 10, yPosition);
+        }
+  
         public void LoadData()
         {
                 var data_access = new FinanceDAL(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);

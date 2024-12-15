@@ -80,7 +80,7 @@ namespace AppartmentSystem
             return true;
         }
 
-        public bool MoveOutTenant(long leaseNumber, string roomNumber)
+        public bool MoveOutTenant(long leaseNumber, string roomNumber , string tenantName)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -92,12 +92,14 @@ namespace AppartmentSystem
                     {
 
                         string deleteLeaseQuery = @"
-                        DELETE FROM LeaseDetails
+                        UPDATE LeaseDetails
+                        SET tenant_name = NULL
                         WHERE lease_id = @leaseNumber";
 
                         using (var leaseCommand = new SqlCommand(deleteLeaseQuery, connection, transaction))
                         {
                             leaseCommand.Parameters.AddWithValue("@leaseNumber", leaseNumber);
+                            leaseCommand.Parameters.AddWithValue("@tenant_name", tenantName);
                             leaseCommand.ExecuteNonQuery();
                         }
 

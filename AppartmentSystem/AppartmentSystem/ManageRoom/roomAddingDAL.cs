@@ -161,7 +161,16 @@ namespace AppartmentSystem.ManageRoom
 
         public bool EditRoom(string roomId, string tenantName, double room_price)
         {
-            string roomQuery = @"UPDATE room SET room_price = @room_price, tenant_name = @tenant_name WHERE room_id = @room_id";
+            string roomQuery =   @"UPDATE room SET room_price = @room_price, tenant_name = @tenant_name WHERE room_id = @room_id";
+            string tenantQuery = @"UPDATE tenant 
+                                 SET room_id = @room_id 
+                                 WHERE CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) = @full_name";
+
+            string leaseQuery = @"
+            UPDATE LeaseDetails
+            SET tenant_name = @tenant_name
+            WHERE room_id = @room_id";
+
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -171,6 +180,13 @@ namespace AppartmentSystem.ManageRoom
 
                 try
                 {
+                
+                    using(SqlCommand Expensecommand = new SqlCommand(leaseQuery, connection, transaction))
+                    {
+                        Expensecommand.Parameters.AddWithValue("@room_id", roomId);
+                        Expensecommand.Parameters.AddWithValue("@tenant_name", tenantName);
+                        Expensecommand.ExecuteNonQuery();
+                    }
 
                     using(SqlCommand roomCommand = new SqlCommand(roomQuery, connection, transaction))
                     {
@@ -179,12 +195,20 @@ namespace AppartmentSystem.ManageRoom
                         roomCommand.Parameters.AddWithValue("@tenant_name", tenantName);
                         roomCommand.ExecuteNonQuery();
                     }
-                
+
+                    using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, connection, transaction))
+                    {
+                        tenantCommand.Parameters.AddWithValue("@room_id", roomId);
+                        tenantCommand.Parameters.AddWithValue("@full_name", tenantName);
+                        tenantCommand.ExecuteNonQuery();
+                    }
+
                     transaction.Commit();
                     return true;
                 }
-                catch (SqlException)
+                catch (SqlException sql)
                 {
+                    MessageBox.Show(sql.Message);
                     transaction.Rollback();
                     return false;
                 }
@@ -312,54 +336,6 @@ namespace AppartmentSystem.ManageRoom
             }
 
             return editLogs;
-        }
-
-        private void AddDataToLeaseDetails(DataGridView dataGridView)
-        {
-            // Define the connection string
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-            // SQL query to insert data into LeaseDetails table
-            string insertQuery = @"
-            INSERT INTO LeaseDetails (room_id,tenant_name, LeaseStartDate, LeaseEndDate)
-            VALUES (@room_id, @tenant_name, @LeaseStartDate, @LeaseEndDate)";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlTransaction transaction = connection.BeginTransaction())
-                {
-                    try
-                    {
-                        foreach (DataGridViewRow row in dataGridView.Rows)
-                        {
-                            if (row.IsNewRow) continue;
-
-                            using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
-                            {
-                                // Replace these column names with the actual ones from your DataGridView
-                                command.Parameters.AddWithValue("@room_id", row.Cells["Room Number"].Value);
-                                command.Parameters.AddWithValue("@tenant_id", row.Cells["FullName"].Value);
-                                command.Parameters.AddWithValue("@LeaseStartDate", row.Cells["LeaseStartDate"].Value ?? DBNull.Value);
-                                command.Parameters.AddWithValue("@LeaseEndDate", row.Cells["LeaseEndDate"].Value ?? DBNull.Value);
-
-                                command.ExecuteNonQuery();
-                            }
-                        }
-
-                        // Commit the transaction after all rows are processed
-                        transaction.Commit();
-                        MessageBox.Show("Data added successfully to LeaseDetails table.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        // Rollback in case of any error
-                        transaction.Rollback();
-                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
         }
 
     }

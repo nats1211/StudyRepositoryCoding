@@ -201,7 +201,7 @@ namespace AppartmentSystem
                 if (e.ColumnIndex == leaveButtonColumnIndex)
                 {
 
-                   if (lease.MoveOutTenant(leaseId, roomNumber))
+                   if (lease.MoveOutTenant(leaseId, roomNumber, tenantName))
                       {
 
                         if (lease.LeftInHistory(tenantName))
