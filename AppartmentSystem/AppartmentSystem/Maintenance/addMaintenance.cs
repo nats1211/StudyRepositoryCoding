@@ -47,7 +47,7 @@ namespace AppartmentSystem.Maintenance
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                 MaintenanceDAL maintenance = new MaintenanceDAL(connectionString);
-
+          
                 string expenseType = cb_addExpenseType.Text;
                 double amount = Convert.ToDouble(txt_addAmount.Text);
                 DateTime dateCreated = DateTime.Now;
@@ -76,7 +76,7 @@ namespace AppartmentSystem.Maintenance
             }
             catch (Exception)
             {
-
+                MessageBox.Show("Error/Missing Data in fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
