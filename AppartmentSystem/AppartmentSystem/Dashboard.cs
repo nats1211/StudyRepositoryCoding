@@ -172,11 +172,17 @@ namespace AppartmentSystem
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
             string query = @"SELECT
-                            room_id AS 'Room',
-                            CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) AS 'Name',
-                            age AS 'Age',
-                            move_in AS 'Move In'
-                            FROM tenant";
+                            t.room_id AS 'Room',
+                            CONCAT(t.last_name, ' ', t.first_name, ' ', ISNULL(t.middle_name, '')) AS 'Name',
+                            t.age AS 'Age',
+                            t.move_in AS 'Move In',
+                            l.LeaseEndDate AS 'Lease End Date'
+                            FROM
+                            tenant t
+                            LEFT JOIN
+                            LeaseDetails l
+                            ON
+                            t.room_id = l.room_id";
 
             DataTable dataTable = new DataTable();
 
