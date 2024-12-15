@@ -35,7 +35,7 @@ namespace AppartmentSystem.ManageRoom
             InitializeComponent();
             LoadComboBox();
             textBox1.ReadOnly = true;
-            txt_editRoomtenant.ReadOnly = true;
+         
         }
 
         private void frm_EditRoom_Load(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace AppartmentSystem.ManageRoom
             textBox1.Text = roomName;
 
             TenantName = tenantName;
-            txt_editRoomtenant.Text = tenantName;
+            
 
             RoomPrice = rent;
             txt_editRoomprice.Text = rent.ToString();
@@ -142,6 +142,11 @@ namespace AppartmentSystem.ManageRoom
             {
                 e.Handled = true;
             }
+        }
+
+        private void txt_editRoomtenant_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

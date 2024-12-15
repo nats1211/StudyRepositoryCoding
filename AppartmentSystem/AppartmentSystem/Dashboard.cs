@@ -90,8 +90,7 @@ namespace AppartmentSystem
 
                     int activeRoomCount = (int)command.ExecuteScalar();
 
-                    lbl_ActiveRoomOutput.Text = activeRoomCount.ToString();
-                    lbl_ActiveRoomOutput.Text = $"Active Rooms: {activeRoomCount}";
+                   
                 }
                 catch (Exception ex)
                 {
@@ -115,8 +114,7 @@ namespace AppartmentSystem
 
                     int InactiveRoomCount = (int)command.ExecuteScalar();
 
-                    lbl_InactiveRoomOutput.Text = InactiveRoomCount.ToString();
-                    lbl_InactiveRoomOutput.Text = $"inactive Rooms: {InactiveRoomCount}";
+                    
                 }
                 catch (Exception ex)
                 {

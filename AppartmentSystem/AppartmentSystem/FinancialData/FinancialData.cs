@@ -46,10 +46,7 @@ namespace AppartmentSystem
             this.Location = new Point(0, 0);
             this.Size = new Size(w, h);
 
-            btn_fdAdd.Region = Region.FromHrgn(CreateRoundRectRgn
-                (0, 0, btn_fdAdd.Width, btn_fdAdd.Height, 15, 15));
-            btn_fdDelete.Region = Region.FromHrgn(CreateRoundRectRgn
-                (0, 0, btn_fdDelete.Width, btn_fdDelete.Height, 15, 15));
+           
             btn_fdPaid.Region = Region.FromHrgn(CreateRoundRectRgn
                 (0, 0, btn_fdPaid.Width, btn_fdPaid.Height, 15, 15));
 

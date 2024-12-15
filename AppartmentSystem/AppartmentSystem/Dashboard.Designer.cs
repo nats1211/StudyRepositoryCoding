@@ -34,15 +34,6 @@
             this.btn_manageLeases = new System.Windows.Forms.Button();
             this.btn_financialData = new System.Windows.Forms.Button();
             this.btn_AssignMaintenance = new System.Windows.Forms.Button();
-            this.lbl_maintenanceRequestOutput = new System.Windows.Forms.Label();
-            this.lbl_InactiveRoomOutput = new System.Windows.Forms.Label();
-            this.lbl_ActiveRoomOutput = new System.Windows.Forms.Label();
-            this.lbl_MaintenanceRequest = new System.Windows.Forms.Label();
-            this.lbl_InactiveRoom = new System.Windows.Forms.Label();
-            this.lbl_TotalActiveRoom = new System.Windows.Forms.Label();
-            this.panel_actRoom = new System.Windows.Forms.Panel();
-            this.panel_inactRoom = new System.Windows.Forms.Panel();
-            this.panel_maintenanceRequest = new System.Windows.Forms.Panel();
             this.panel_headDashboard = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_admin = new System.Windows.Forms.Label();
@@ -50,9 +41,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_tenantProfile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel_actRoom.SuspendLayout();
-            this.panel_inactRoom.SuspendLayout();
-            this.panel_maintenanceRequest.SuspendLayout();
             this.panel_headDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -137,102 +125,6 @@
             this.btn_AssignMaintenance.UseVisualStyleBackColor = false;
             this.btn_AssignMaintenance.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lbl_maintenanceRequestOutput
-            // 
-            this.lbl_maintenanceRequestOutput.AutoSize = true;
-            this.lbl_maintenanceRequestOutput.Location = new System.Drawing.Point(20, 30);
-            this.lbl_maintenanceRequestOutput.Name = "lbl_maintenanceRequestOutput";
-            this.lbl_maintenanceRequestOutput.Size = new System.Drawing.Size(73, 13);
-            this.lbl_maintenanceRequestOutput.TabIndex = 5;
-            this.lbl_maintenanceRequestOutput.Text = "maint_request";
-            this.lbl_maintenanceRequestOutput.Visible = false;
-            // 
-            // lbl_InactiveRoomOutput
-            // 
-            this.lbl_InactiveRoomOutput.AutoSize = true;
-            this.lbl_InactiveRoomOutput.Location = new System.Drawing.Point(20, 23);
-            this.lbl_InactiveRoomOutput.Name = "lbl_InactiveRoomOutput";
-            this.lbl_InactiveRoomOutput.Size = new System.Drawing.Size(62, 13);
-            this.lbl_InactiveRoomOutput.TabIndex = 4;
-            this.lbl_InactiveRoomOutput.Text = "Inact Room";
-            this.lbl_InactiveRoomOutput.Visible = false;
-            // 
-            // lbl_ActiveRoomOutput
-            // 
-            this.lbl_ActiveRoomOutput.AutoSize = true;
-            this.lbl_ActiveRoomOutput.Location = new System.Drawing.Point(20, 30);
-            this.lbl_ActiveRoomOutput.Name = "lbl_ActiveRoomOutput";
-            this.lbl_ActiveRoomOutput.Size = new System.Drawing.Size(50, 13);
-            this.lbl_ActiveRoomOutput.TabIndex = 3;
-            this.lbl_ActiveRoomOutput.Text = "actRoom";
-            this.lbl_ActiveRoomOutput.Visible = false;
-            this.lbl_ActiveRoomOutput.Click += new System.EventHandler(this.lbl_ActiveRoomOutput_Click);
-            // 
-            // lbl_MaintenanceRequest
-            // 
-            this.lbl_MaintenanceRequest.AutoSize = true;
-            this.lbl_MaintenanceRequest.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_MaintenanceRequest.Location = new System.Drawing.Point(-10, 67);
-            this.lbl_MaintenanceRequest.Name = "lbl_MaintenanceRequest";
-            this.lbl_MaintenanceRequest.Size = new System.Drawing.Size(293, 37);
-            this.lbl_MaintenanceRequest.TabIndex = 2;
-            this.lbl_MaintenanceRequest.Text = "Maintenance Request";
-            // 
-            // lbl_InactiveRoom
-            // 
-            this.lbl_InactiveRoom.AutoSize = true;
-            this.lbl_InactiveRoom.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_InactiveRoom.Location = new System.Drawing.Point(-6, 67);
-            this.lbl_InactiveRoom.Name = "lbl_InactiveRoom";
-            this.lbl_InactiveRoom.Size = new System.Drawing.Size(202, 37);
-            this.lbl_InactiveRoom.TabIndex = 1;
-            this.lbl_InactiveRoom.Text = "Inactive Room";
-            // 
-            // lbl_TotalActiveRoom
-            // 
-            this.lbl_TotalActiveRoom.AutoSize = true;
-            this.lbl_TotalActiveRoom.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_TotalActiveRoom.Location = new System.Drawing.Point(-6, 63);
-            this.lbl_TotalActiveRoom.Name = "lbl_TotalActiveRoom";
-            this.lbl_TotalActiveRoom.Size = new System.Drawing.Size(181, 37);
-            this.lbl_TotalActiveRoom.TabIndex = 0;
-            this.lbl_TotalActiveRoom.Text = "Active Room";
-            this.lbl_TotalActiveRoom.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // panel_actRoom
-            // 
-            this.panel_actRoom.BackColor = System.Drawing.Color.Transparent;
-            this.panel_actRoom.Controls.Add(this.lbl_TotalActiveRoom);
-            this.panel_actRoom.Controls.Add(this.lbl_ActiveRoomOutput);
-            this.panel_actRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel_actRoom.Location = new System.Drawing.Point(216, 90);
-            this.panel_actRoom.Name = "panel_actRoom";
-            this.panel_actRoom.Size = new System.Drawing.Size(261, 100);
-            this.panel_actRoom.TabIndex = 6;
-            this.panel_actRoom.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel_inactRoom
-            // 
-            this.panel_inactRoom.BackColor = System.Drawing.Color.Transparent;
-            this.panel_inactRoom.Controls.Add(this.lbl_InactiveRoom);
-            this.panel_inactRoom.Controls.Add(this.lbl_InactiveRoomOutput);
-            this.panel_inactRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel_inactRoom.Location = new System.Drawing.Point(216, 222);
-            this.panel_inactRoom.Name = "panel_inactRoom";
-            this.panel_inactRoom.Size = new System.Drawing.Size(261, 100);
-            this.panel_inactRoom.TabIndex = 7;
-            // 
-            // panel_maintenanceRequest
-            // 
-            this.panel_maintenanceRequest.BackColor = System.Drawing.Color.Transparent;
-            this.panel_maintenanceRequest.Controls.Add(this.lbl_MaintenanceRequest);
-            this.panel_maintenanceRequest.Controls.Add(this.lbl_maintenanceRequestOutput);
-            this.panel_maintenanceRequest.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel_maintenanceRequest.Location = new System.Drawing.Point(217, 361);
-            this.panel_maintenanceRequest.Name = "panel_maintenanceRequest";
-            this.panel_maintenanceRequest.Size = new System.Drawing.Size(286, 100);
-            this.panel_maintenanceRequest.TabIndex = 8;
-            // 
             // panel_headDashboard
             // 
             this.panel_headDashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -276,13 +168,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(502, 90);
+            this.dataGridView1.Location = new System.Drawing.Point(222, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(484, 236);
+            this.dataGridView1.Size = new System.Drawing.Size(764, 236);
             this.dataGridView1.TabIndex = 11;
             // 
             // panel1
@@ -319,7 +212,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.Location = new System.Drawing.Point(519, 361);
+            this.label2.Location = new System.Drawing.Point(381, 365);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(477, 278);
             this.label2.TabIndex = 13;
@@ -335,9 +228,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel_headDashboard);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel_maintenanceRequest);
-            this.Controls.Add(this.panel_inactRoom);
-            this.Controls.Add(this.panel_actRoom);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -345,12 +235,6 @@
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Frm_Dashboard_Load);
-            this.panel_actRoom.ResumeLayout(false);
-            this.panel_actRoom.PerformLayout();
-            this.panel_inactRoom.ResumeLayout(false);
-            this.panel_inactRoom.PerformLayout();
-            this.panel_maintenanceRequest.ResumeLayout(false);
-            this.panel_maintenanceRequest.PerformLayout();
             this.panel_headDashboard.ResumeLayout(false);
             this.panel_headDashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -366,15 +250,6 @@
         private System.Windows.Forms.Button btn_manageLeases;
         private System.Windows.Forms.Button btn_financialData;
         private System.Windows.Forms.Button btn_AssignMaintenance;
-        private System.Windows.Forms.Label lbl_TotalActiveRoom;
-        private System.Windows.Forms.Label lbl_InactiveRoom;
-        private System.Windows.Forms.Label lbl_maintenanceRequestOutput;
-        private System.Windows.Forms.Label lbl_InactiveRoomOutput;
-        private System.Windows.Forms.Label lbl_ActiveRoomOutput;
-        private System.Windows.Forms.Label lbl_MaintenanceRequest;
-        private System.Windows.Forms.Panel panel_actRoom;
-        private System.Windows.Forms.Panel panel_inactRoom;
-        private System.Windows.Forms.Panel panel_maintenanceRequest;
         private System.Windows.Forms.Panel panel_headDashboard;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel1;

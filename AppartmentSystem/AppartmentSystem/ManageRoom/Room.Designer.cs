@@ -55,6 +55,8 @@
             this.dg_ManageRoom.AllowUserToDeleteRows = false;
             this.dg_ManageRoom.AllowUserToResizeColumns = false;
             this.dg_ManageRoom.AllowUserToResizeRows = false;
+            this.dg_ManageRoom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_ManageRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_ManageRoom.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dg_ManageRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
