@@ -32,6 +32,8 @@ namespace AppartmentSystem
         {
             InitializeComponent();
             //panel_headDashboard.BackColor = Color.FromArgb(125, Color.Black);
+            LoadData();
+            dataGridView1.Enabled = false;
             
             
         }
@@ -166,5 +168,35 @@ namespace AppartmentSystem
             profile.Show();
             this.Close();
         }
+
+        public void LoadData()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+            string query = @"SELECT
+                            room_id AS 'Room',
+                            CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) AS 'Name',
+                            age AS 'Age',
+                            move_in AS 'Move In'
+                            FROM tenant";
+
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+                }
+            }
+
+            dataGridView1.DataSource = dataTable;
+        }
+
     }
 }
