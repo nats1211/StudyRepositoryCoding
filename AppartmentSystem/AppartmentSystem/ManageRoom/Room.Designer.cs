@@ -55,20 +55,19 @@
             this.dg_ManageRoom.AllowUserToDeleteRows = false;
             this.dg_ManageRoom.AllowUserToResizeColumns = false;
             this.dg_ManageRoom.AllowUserToResizeRows = false;
-            this.dg_ManageRoom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_ManageRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dg_ManageRoom.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
             this.dg_ManageRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_ManageRoom.EnableHeadersVisualStyles = false;
             this.dg_ManageRoom.Location = new System.Drawing.Point(56, 168);
             this.dg_ManageRoom.MultiSelect = false;
             this.dg_ManageRoom.Name = "dg_ManageRoom";
             this.dg_ManageRoom.ReadOnly = true;
             this.dg_ManageRoom.RowHeadersWidth = 51;
+            this.dg_ManageRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_ManageRoom.ShowEditingIcon = false;
             this.dg_ManageRoom.Size = new System.Drawing.Size(897, 446);
             this.dg_ManageRoom.TabIndex = 0;
-            this.dg_ManageRoom.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_ManageRoom_CellClick);
-            this.dg_ManageRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_ManageRoom_CellContentClick);
             // 
             // btn_addRoom
             // 
@@ -275,8 +274,9 @@
             this.txt_RoomNo.Location = new System.Drawing.Point(608, 128);
             this.txt_RoomNo.Margin = new System.Windows.Forms.Padding(4);
             this.txt_RoomNo.Name = "txt_RoomNo";
-            this.txt_RoomNo.Size = new System.Drawing.Size(72, 21);
+            this.txt_RoomNo.Size = new System.Drawing.Size(122, 21);
             this.txt_RoomNo.TabIndex = 21;
+            this.txt_RoomNo.Leave += new System.EventHandler(this.txt_RoomNo_Leave);
             // 
             // frm_room
             // 
@@ -308,6 +308,7 @@
             this.Name = "frm_room";
             this.Text = "Room";
             this.Load += new System.EventHandler(this.frm_room_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frm_room_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dg_ManageRoom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -38,7 +38,6 @@ namespace AppartmentSystem
         {
             InitializeComponent();
             LoadRoomComboBox();
-            btn_editRoom.Enabled = false;
 
         }
 
@@ -47,20 +46,12 @@ namespace AppartmentSystem
         {
             dateTimePicker1.MinDate = DateTime.Now;
             LoadData();
-            if (txt_RoomNo.Text == "")
-            {
-                dg_ManageRoom.SelectionChanged += dg_ManageRoom_SelectionChanged;
-            }
-            else
-            {
-                dg_ManageRoom.SelectionChanged -= dg_ManageRoom_SelectionChanged;
-            }
+            txt_RoomNo.Text = "";
             int w = Screen.PrimaryScreen.Bounds.Width;
             int h = Screen.PrimaryScreen.Bounds.Height;
 
             this.Location = new Point(0, 0);
-            this.Size = new Size(w, h);
-
+            this.Size = new Size(w, h);    
 
             btn_addRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addRoom.Width,
             btn_addRoom.Height, 15, 15));
@@ -82,7 +73,7 @@ namespace AppartmentSystem
             string query = @"
             SELECT
             r.room_id as 'Room Number',
-            CONCAT(t.first_name, ' ', ISNULL(t.middle_name, ''), ' ', t.last_name) AS FullName,
+            CONCAT(t.last_name, ' ', t.first_name, ' ', ISNULL(t.middle_name, '')) AS FullName,
             r.room_price as 'Rent',
             t.move_in as 'Move in'
             FROM room r
@@ -117,18 +108,27 @@ namespace AppartmentSystem
                 bool success = add.AddRoom(roomNum,roomPrice);
                 bool tenant = add.AddTenant(tenantName, roomNum, movedIn, moved_out);
 
+
+                if (IsRoomExists(roomNum))
+                {
+                    MessageBox.Show("Room already exists in the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (success)
                 {
-                    MessageBox.Show("Room and tenant have been added successfully");
+                    MessageBox.Show("Room and tenant have been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     txt_price.Clear();
                     txt_tenant.Clear();
-                    btn_Update_Click(sender, e);
-                    
                 }
                 else
                 {
-                    MessageBox.Show("Error has occured. Data has not been saved");
+                    MessageBox.Show("Failed to add room and tenant. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
+                btn_Update_Click(sender, e);
+
             }
             catch (FormatException ex)
             {
@@ -136,6 +136,19 @@ namespace AppartmentSystem
                 "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
                        
+        }
+
+        private bool IsRoomExists(string roomId)
+        {
+            foreach (DataGridViewRow row in dg_ManageRoom.Rows)
+            {
+                if (row.Cells["Room Number"].Value != null && row.Cells["Room Number"].Value.ToString() == roomId)
+                { 
+
+                    return true;                  
+                }
+            }
+            return false;
         }
 
         private void LoadRoomComboBox()
@@ -248,12 +261,6 @@ namespace AppartmentSystem
             btn_editRoom.Enabled = false;
         }
 
-        private void dg_ManageRoom_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btn_addRoom.Enabled = false;
-            btn_editRoom.Enabled = true;
-        }
-
         private void txt_tenant_MouseClick(object sender, MouseEventArgs e)
         {
             btn_addRoom.Enabled = true;
@@ -290,20 +297,6 @@ namespace AppartmentSystem
             if (char.IsPunctuation(e.KeyChar))
             {
                 e.Handled= true;
-            }
-        }
-
-        private void dg_ManageRoom_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dg_ManageRoom.CurrentCell != null)
-            {
-
-                string roomNumber = dg_ManageRoom.Rows[e.RowIndex].Cells["Room Number"].Value.ToString();
-                string tenantName = dg_ManageRoom.Rows[e.RowIndex].Cells["Name"].Value.ToString();
-                double roomPrice = Convert.ToDouble(dg_ManageRoom.Rows[e.RowIndex].Cells["Rent"].Value);
-
-                frm_EditRoom edit = new frm_EditRoom();
-                edit.setRoomDetails(roomNumber, tenantName, roomPrice);
             }
         }
 
@@ -344,5 +337,35 @@ namespace AppartmentSystem
             editForm.Show();
         }
 
+        private void txt_RoomNo_Leave(object sender, EventArgs e)
+        {
+            string selectedName = txt_RoomNo.Text.Trim();
+            bool nameExists = false;
+
+            foreach (DataGridViewRow row in dg_ManageRoom.Rows)
+            {
+                if (row.IsNewRow)
+                {
+                    string cellName = row.Cells["FullName"].Value?.ToString().Trim();
+                    if (selectedName.Equals(cellName, StringComparison.OrdinalIgnoreCase))
+                    {
+                        nameExists = true;
+                        break;
+                    }
+                }
+            }
+
+            if (nameExists)
+            {
+                MessageBox.Show("The selected name already exists in the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_RoomNo.Text = "";
+                dg_ManageRoom.Focus();
+            }
+        }
+
+        private void frm_room_MouseClick(object sender, MouseEventArgs e)
+        {
+            dg_ManageRoom.ClearSelection();
+        }
     }
 }

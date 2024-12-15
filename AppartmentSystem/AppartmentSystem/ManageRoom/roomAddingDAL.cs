@@ -19,7 +19,6 @@ namespace AppartmentSystem.ManageRoom
         public roomAddingDAL(string connString)
         {
               connectionString = connString;
-             // WHERE CONCAT(last_name, ' ', first_name, ' ', middle_name) = @full_name;
         }
 
         public bool AddTenant(string fullName, string roomNum, DateTime moved_IN, DateTime leaseEndDate)
@@ -115,20 +114,43 @@ namespace AppartmentSystem.ManageRoom
         public bool DeleteRoom(string roomId)
         {
             string query = "DELETE FROM room WHERE room_id = @room_id";
+            string leaseDelete = "DELETE FROM LeaseDetails WHERE room_id = @room_id";
+            string deleteExpenses = "DELETE FROM LeaseDetails WHERE room_id = @room_id";
+            string tenantQuery = @"  UPDATE tenant SET room_id = NULL WHERE room_id = @roomId";
+
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
+                 
+                    using (var tenantCommand = new SqlCommand(tenantQuery, connection))
+                    {
+                        tenantCommand.Parameters.AddWithValue("@roomId", roomId);
+                        tenantCommand.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand Expensecommand = new SqlCommand(deleteExpenses, connection))
+                    {
+                        Expensecommand.Parameters.AddWithValue("@room_id", roomId);
+                        Expensecommand.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand leasecommand = new SqlCommand(leaseDelete, connection))
+                    {
+                        leasecommand.Parameters.AddWithValue("@room_id", roomId);
+                        leasecommand.ExecuteNonQuery();
+                    }
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@room_id", roomId);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-                        return rowsAffected > 0;
+                        command.ExecuteNonQuery();
                     }
                 }
+
+                return true;
+
             }
             catch (SqlException)
             {
@@ -177,7 +199,7 @@ namespace AppartmentSystem.ManageRoom
             string query = @"
             SELECT
             r.room_id as 'Room Number',
-            CONCAT(t.first_name, ' ', ISNULL(t.middle_name, ''), ' ', t.last_name) AS FullName,
+            CONCAT(t.last_name, ' ', t.first_name, ' ', ISNULL(t.middle_name, '')) AS FullName,
             r.room_price as 'Rent',
             t.move_in as 'Move in'
             FROM room r

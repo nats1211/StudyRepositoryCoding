@@ -64,5 +64,10 @@ namespace AppartmentSystem.ManageRoom
         {
             this.Close();
         }
+
+        private void frm_EditRoomLog_MouseClick(object sender, MouseEventArgs e)
+        {
+            dg_editroomLog.ClearSelection();
+        }
     }
 }

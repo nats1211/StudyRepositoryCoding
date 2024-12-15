@@ -34,6 +34,7 @@ namespace AppartmentSystem.ManageRoom
         {
             InitializeComponent();
             textBox1.ReadOnly = true;
+            txt_editRoomtenant.ReadOnly = true;
         }
 
         private void frm_EditRoom_Load(object sender, EventArgs e)

@@ -87,7 +87,6 @@ namespace AppartmentSystem
                 else
                 {
                     dataGridView1.DataSource = null;
-                MessageBox.Show("Error");
                 }
 
 
@@ -103,6 +102,11 @@ namespace AppartmentSystem
             Frm_Dashboard dashboard = new Frm_Dashboard();
             dashboard.Show();
             this.Close();
+        }
+
+        private void frm_financialData_MouseClick(object sender, MouseEventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }

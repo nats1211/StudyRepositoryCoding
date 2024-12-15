@@ -244,6 +244,11 @@ namespace AppartmentSystem
             this.Close();
         }
 
+        private void ManageLease_MouseClick(object sender, MouseEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
+
         //kailangan ayusin yung left btn
     }
 }

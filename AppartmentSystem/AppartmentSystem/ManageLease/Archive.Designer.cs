@@ -47,6 +47,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(20, 119);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(963, 416);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -88,6 +89,7 @@
             this.Name = "frm_Archive";
             this.Text = "Archive";
             this.Load += new System.EventHandler(this.Archive_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frm_Archive_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -90,6 +90,20 @@ namespace AppartmentSystem
                 {
                     try
                     {
+
+                        string tenantQuery = @"
+                        UPDATE tenant
+                        SET
+                        room_id = NULL
+                        WHERE room_id = @roomId";
+
+                        using (var tenantCommand = new SqlCommand(tenantQuery, connection, transaction))
+                        {
+                            tenantCommand.Parameters.AddWithValue("@roomId", roomNumber);
+                            tenantCommand.ExecuteNonQuery();
+                        }
+
+
                         string deleteRoomQuery = @"
                         DELETE FROM room
                         WHERE room_id = @roomId";

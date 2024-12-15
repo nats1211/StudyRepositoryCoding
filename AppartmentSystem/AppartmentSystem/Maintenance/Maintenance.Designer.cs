@@ -59,6 +59,7 @@
             this.dg_maintenance.Location = new System.Drawing.Point(35, 181);
             this.dg_maintenance.Name = "dg_maintenance";
             this.dg_maintenance.ReadOnly = true;
+            this.dg_maintenance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_maintenance.Size = new System.Drawing.Size(917, 429);
             this.dg_maintenance.TabIndex = 0;
             this.dg_maintenance.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_maintenance_CellContentClick);

@@ -57,28 +57,166 @@ namespace AppartmentSystem
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             tenantDAL tenant = new tenantDAL(connectionString);
 
-            string firstname = txt_tenantFirstName.Text;
-            string lastname = txt_LastName.Text;
-            string middlename = txt_MiddleName.Text;
-            int age = Convert.ToInt32(txt_age.Text);
-            long contact = Convert.ToInt64(txt_contactNo.Text);
-            string email = txt_email.Text;
-
-            bool success = tenant.addTenant(firstname, lastname, middlename, age, contact, email);
-
-            if (success)
+            try
             {
-                txt_tenantFirstName.Clear();
-                txt_LastName.Clear();
-                txt_MiddleName.Clear();
-                txt_age.Clear();
-                txt_contactNo.Clear();
-                txt_email.Clear();
-                MessageBox.Show("Tenant has added", "Successfully" , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string firstname = txt_tenantFirstName.Text;
+                string lastname = txt_LastName.Text;
+                string middlename = txt_MiddleName.Text;
+                int age = Convert.ToInt32(txt_age.Text);
+                long contact = Convert.ToInt64(txt_contactNo.Text);
+                string email = txt_email.Text;
+
+                bool success = tenant.addTenant(firstname, lastname, middlename, age, contact, email);
+
+                if (success)
+                {
+                    txt_tenantFirstName.Clear();
+                    txt_LastName.Clear();
+                    txt_MiddleName.Clear();
+                    txt_age.Clear();
+                    txt_contactNo.Clear();
+                    txt_email.Clear();
+                    MessageBox.Show("Tenant has added", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            catch (FormatException)
+            {
+
+                MessageBox.Show("Invalid Input/Missing Field!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btn_backManageTenant_Click(object sender, EventArgs e)
+        {
+            Frm_Dashboard dashboard = new Frm_Dashboard();
+            dashboard.Show();
+            this.Close();
+        }
+
+        private void txt_tenantFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled= true;
+            }
+        }
+
+        private void txt_LastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_MiddleName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_age_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            int maxCharAge = 3;
+
+            if (txt_age.Text.Length >= maxCharAge && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_contactNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            int maxCharAge = 11;
+
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if (txt_contactNo.Text.Length == maxCharAge && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+
+            }
+        }
+
+        private void txt_email_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            int maxString = 15;
+
+            if (char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            if(txt_email.TextLength >= maxString && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btn_cancelManageTenant_Click(object sender, EventArgs e)
         {
             Frm_Dashboard dashboard = new Frm_Dashboard();
             dashboard.Show();

@@ -60,6 +60,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(41, 187);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(926, 425);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -263,6 +264,7 @@
             this.Name = "frm_financialData";
             this.Text = "FinancialData";
             this.Load += new System.EventHandler(this.frm_financialData_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frm_financialData_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

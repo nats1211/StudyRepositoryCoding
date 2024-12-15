@@ -75,5 +75,10 @@ namespace AppartmentSystem.ManageRoom
             lease.Show();
             this.Close();            
         }
+
+        private void frm_Archive_MouseClick(object sender, MouseEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+        }
     }
 }

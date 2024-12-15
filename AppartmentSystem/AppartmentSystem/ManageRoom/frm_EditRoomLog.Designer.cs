@@ -70,6 +70,7 @@
             this.dg_editroomLog.Location = new System.Drawing.Point(36, 115);
             this.dg_editroomLog.Name = "dg_editroomLog";
             this.dg_editroomLog.ReadOnly = true;
+            this.dg_editroomLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_editroomLog.Size = new System.Drawing.Size(729, 291);
             this.dg_editroomLog.TabIndex = 2;
             // 
@@ -102,6 +103,7 @@
             this.Name = "frm_EditRoomLog";
             this.Text = "frm_EditRoomLog";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frm_EditRoomLog_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dg_editroomLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

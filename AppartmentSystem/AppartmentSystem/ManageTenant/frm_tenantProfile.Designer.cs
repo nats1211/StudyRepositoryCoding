@@ -94,6 +94,7 @@
             this.txt_tenantFirstName.Name = "txt_tenantFirstName";
             this.txt_tenantFirstName.Size = new System.Drawing.Size(100, 20);
             this.txt_tenantFirstName.TabIndex = 3;
+            this.txt_tenantFirstName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tenantFirstName_KeyPress);
             // 
             // lbl_LastName
             // 
@@ -114,6 +115,7 @@
             this.txt_LastName.Name = "txt_LastName";
             this.txt_LastName.Size = new System.Drawing.Size(100, 20);
             this.txt_LastName.TabIndex = 5;
+            this.txt_LastName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_LastName_KeyPress);
             // 
             // txt_MiddleName
             // 
@@ -121,6 +123,7 @@
             this.txt_MiddleName.Name = "txt_MiddleName";
             this.txt_MiddleName.Size = new System.Drawing.Size(100, 20);
             this.txt_MiddleName.TabIndex = 7;
+            this.txt_MiddleName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_MiddleName_KeyPress);
             // 
             // lbl_MiddleName
             // 
@@ -154,6 +157,7 @@
             this.txt_age.Name = "txt_age";
             this.txt_age.Size = new System.Drawing.Size(100, 20);
             this.txt_age.TabIndex = 9;
+            this.txt_age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_age_KeyPress);
             // 
             // txt_email
             // 
@@ -161,6 +165,7 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(100, 20);
             this.txt_email.TabIndex = 13;
+            this.txt_email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_email_KeyPress);
             // 
             // lbl_email
             // 
@@ -181,6 +186,7 @@
             this.txt_contactNo.Name = "txt_contactNo";
             this.txt_contactNo.Size = new System.Drawing.Size(100, 20);
             this.txt_contactNo.TabIndex = 11;
+            this.txt_contactNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_contactNo_KeyPress);
             // 
             // lbl_contactNo
             // 
@@ -262,6 +268,7 @@
             this.btn_cancelManageTenant.Text = "Cancel";
             this.btn_cancelManageTenant.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_cancelManageTenant.UseVisualStyleBackColor = false;
+            this.btn_cancelManageTenant.Click += new System.EventHandler(this.btn_cancelManageTenant_Click);
             // 
             // btn_backManageTenant
             // 

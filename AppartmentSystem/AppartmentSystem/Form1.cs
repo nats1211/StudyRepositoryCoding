@@ -33,7 +33,6 @@ namespace AppartmentSystem
         {
             InitializeComponent();
             panel_login.BackColor = Color.FromArgb(125, Color.Black);
-           
         }
 
         private void btn_SignUp_Click(object sender, EventArgs e)
@@ -56,7 +55,6 @@ namespace AppartmentSystem
 
             btn_Login.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_Login.Width,
             btn_Login.Height, 15, 15));
-
 
         }
 
@@ -86,7 +84,6 @@ namespace AppartmentSystem
 
                     if (result > 0)
                     {
-                        MessageBox.Show("Login Successfull");
 
                         Frm_Dashboard frm_Dashboard = new Frm_Dashboard();
                         frm_Dashboard.Show();
@@ -99,11 +96,9 @@ namespace AppartmentSystem
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("Database Error: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message);
                 }
                 finally
                 {
@@ -116,7 +111,25 @@ namespace AppartmentSystem
 
         }
 
-    }
+        private void cb_showPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_showPassword.Checked)
+            {
+                txt_Password.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txt_Password.UseSystemPasswordChar = true;
+            }
+        }
 
-  
+        private void txt_Password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_Login_Click(sender, e);
+            }
+        }
+    }
 }

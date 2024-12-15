@@ -60,6 +60,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(29, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(951, 497);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -246,6 +247,7 @@
             this.Name = "ManageLease";
             this.Text = "ManageLease";
             this.Load += new System.EventHandler(this.ManageLease_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ManageLease_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel_sample.ResumeLayout(false);
             this.panel_sample.PerformLayout();

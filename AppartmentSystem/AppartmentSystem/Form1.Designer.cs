@@ -126,6 +126,7 @@
             this.txt_Password.Size = new System.Drawing.Size(279, 20);
             this.txt_Password.TabIndex = 5;
             this.txt_Password.UseSystemPasswordChar = true;
+            this.txt_Password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Password_KeyPress);
             // 
             // panel_login
             // 
@@ -157,6 +158,7 @@
             this.cb_showPassword.TabIndex = 7;
             this.cb_showPassword.Text = "Show Password";
             this.cb_showPassword.UseVisualStyleBackColor = true;
+            this.cb_showPassword.CheckedChanged += new System.EventHandler(this.cb_showPassword_CheckedChanged);
             // 
             // lbl_logo_admin_Signup
             // 
