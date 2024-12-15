@@ -145,5 +145,31 @@ namespace AppartmentSystem
 
             return description;
         }
+
+        public bool deleteMaintenance(int roomId)
+        {
+            using (var connection = new SqlConnection(_ConnectionString))
+            {
+
+                connection.Open();
+
+                string query = @"DELETE FROM Expenses WHERE ExpenseID = @ExpenseID";
+
+                using (var command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ExpenseID", roomId);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AppartmentSystem.Maintenance;
+using AppartmentSystem.ManageRoom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -132,7 +133,40 @@ namespace AppartmentSystem
 
         private void btn_editMaintenance_Click(object sender, EventArgs e)
         {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            MaintenanceDAL maintenance = new MaintenanceDAL(connectionString);
 
+            if (dg_maintenance.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Select a row to delete.");
+                return;
+            }
+
+            int roomId = Convert.ToInt32(dg_maintenance.SelectedRows[0].Cells["ID"].Value.ToString());
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
+                "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                bool isDeleted = maintenance.deleteMaintenance(roomId);
+
+
+                if (isDeleted)
+                {
+                    MessageBox.Show("Record deleted successfully!");
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Error: Record could not be deleted");
+                }
+            }
+        }
+
+        private void Frm_Maintenance_MouseClick(object sender, MouseEventArgs e)
+        {
+            dg_maintenance.ClearSelection();
         }
     }
 }

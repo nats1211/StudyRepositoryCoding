@@ -157,6 +157,7 @@
             this.Name = "Frm_Maintenance";
             this.Text = "Maintenance";
             this.Load += new System.EventHandler(this.Maintenance_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Frm_Maintenance_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dg_maintenance)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
