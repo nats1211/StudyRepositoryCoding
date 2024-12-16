@@ -148,5 +148,24 @@ namespace AppartmentSystem.ManageRoom
         {
 
         }
+
+        private void btn_editRoomCancel_Click(object sender, EventArgs e)
+        {
+            var sure = MessageBox.Show("Are you sure you want to cancel?", ""
+                , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if(DialogResult.OK == sure)
+            {
+
+                frm_room room = new frm_room();
+                room.Show();
+                this.Close();
+            }
+            else if(DialogResult.Cancel == sure)
+            {
+
+                return;
+            }
+        }
     }
 }
