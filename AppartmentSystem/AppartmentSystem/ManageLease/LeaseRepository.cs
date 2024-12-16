@@ -93,7 +93,8 @@ namespace AppartmentSystem
 
                         string deleteLeaseQuery = @"
                         UPDATE LeaseDetails
-                        SET tenant_name = NULL
+                        SET tenant_name = NULL,
+                        Status = 'Left'
                         WHERE lease_id = @leaseNumber";
 
                         using (var leaseCommand = new SqlCommand(deleteLeaseQuery, connection, transaction))
