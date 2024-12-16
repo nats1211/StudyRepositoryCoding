@@ -87,3 +87,4 @@ C:\Users\63922\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSys
 C:\Users\63922\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.exe
 C:\Users\63922\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.pdb
 C:\Users\admin\source\repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.FinancialData.frm_addRoom.resources
+C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.FinancialData.frm_addRoom.resources

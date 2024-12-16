@@ -1,4 +1,5 @@
-﻿using AppartmentSystem.ManageRoom;
+﻿using AppartmentSystem.FinancialData;
+using AppartmentSystem.ManageRoom;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,85 +67,21 @@ namespace AppartmentSystem
 
             btn_editRoomLog.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_editRoomLog.Width,
                 btn_editRoomLog.Height, 15, 15));
-        }
-
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-            string query = @"
-            SELECT
-            r.room_id as 'Room Number',
-            r.tenant_name as 'Name',
-            r.room_price as 'Rent',
-            t.move_in as 'Move in'
-            FROM room r
-            LEFT JOIN tenant t ON r.room_id = t.room_id";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-
-                dg_ManageRoom.DataSource = table;
-            }
-        }
+        }  
 
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
-            try
-            {
-                
-                //Connection ng database
-                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                roomAddingDAL add = new roomAddingDAL(connectionString);
-                //baliktad
-                string roomNum = txt_tenant.Text;
-                double roomPrice = double.Parse(txt_price.Text);
-                string tenantName = txt_RoomNo.Text;
-                DateTime movedIn = dateTimePicker1.Value;
-                DateTime moved_out = movedIn.AddMonths(1);
 
-                //eto yung kinuha yung process
-                bool success = add.AddRoom(roomNum,roomPrice, tenantName);
-                bool tenant = add.AddTenant(tenantName, roomNum, movedIn, moved_out);
-
-
-                if (IsRoomExists(roomNum))
-                {
-                    MessageBox.Show("Room already exists in the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (success)
-                {
-                    MessageBox.Show("Room and tenant have been added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    txt_price.Clear();
-                    txt_tenant.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to add room and tenant. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                btn_Update_Click(sender, e);
-
-            }
-            catch (FormatException ex)
-            {
-                DialogResult result = MessageBox.Show("Check your input details",
-                "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-                       
+            frm_addRoom room = new frm_addRoom();
+            room.Show();
+            this.Close();
         }
 
-        private bool IsRoomExists(string roomId)
+        public bool IsRoomExists(string roomId)
         {
             foreach (DataGridViewRow row in dg_ManageRoom.Rows)
             {
-                if (row.Cells["Room Number"].Value != null && row.Cells["Room Number"].Value.ToString() == roomId)
+                if (row.Cells["House Number"].Value != null && row.Cells["House Number"].Value.ToString() == roomId)
                 { 
 
                     return true;                  
@@ -175,7 +112,7 @@ namespace AppartmentSystem
                 return;
             }
 
-            string roomId = dg_ManageRoom.SelectedRows[0].Cells["Room Number"].Value.ToString();
+            string roomId = dg_ManageRoom.SelectedRows[0].Cells["House Number"].Value.ToString();
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this record?",
                 "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -190,7 +127,7 @@ namespace AppartmentSystem
                 if(isDeleted)
                 {
                     MessageBox.Show("Record deleted successfully!");
-                    btn_Update_Click(sender, e);
+                    LoadData();
                 }
                 else
                 {
@@ -225,6 +162,7 @@ namespace AppartmentSystem
                 {
                     dg_ManageRoom.DataSource = null;
                 }
+
             }
             catch (Exception)
             { 
@@ -312,11 +250,11 @@ namespace AppartmentSystem
             if (dg_ManageRoom.CurrentCell != null && rowIndex >= 0)
             {
 
-                string roomNumber = dg_ManageRoom.Rows[rowIndex].Cells["Room Number"].Value.ToString();
+                string roomNumber = dg_ManageRoom.Rows[rowIndex].Cells["House Number"].Value.ToString();
                 string tenantName = dg_ManageRoom.Rows[rowIndex].Cells["Name"].Value.ToString();
                 double roomPrice = Convert.ToDouble(dg_ManageRoom.Rows[rowIndex].Cells["Rent"].Value);
 
-                frm_EditRoom editForm = new frm_EditRoom();
+                frm_EditRoom editForm = new frm_EditRoom();             
 
                 editForm.setRoomDetails(roomNumber, tenantName, roomPrice);
                 editForm.Show();
@@ -334,7 +272,7 @@ namespace AppartmentSystem
             }
             else
             {
-                MessageBox.Show("Please select a room to edit.");
+                MessageBox.Show("Please select a house to edit.");
             }
         }
 

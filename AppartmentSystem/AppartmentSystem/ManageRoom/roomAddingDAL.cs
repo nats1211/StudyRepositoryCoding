@@ -19,63 +19,10 @@ namespace AppartmentSystem.ManageRoom
         public roomAddingDAL(string connString)
         {
               connectionString = connString;
-        }
+        }     
 
-        public bool AddTenant(string fullName, string roomNum, DateTime moved_IN, DateTime leaseEndDate)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string tenantUpdateQuery = @"
-                UPDATE tenant
-                SET room_id = @room_id,
-                move_in = @move_in
-                WHERE CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) = @full_name;";
-
-                string insertQuery = @"
-                INSERT INTO LeaseDetails (room_id, tenant_name, LeaseStartDate, LeaseEndDate)
-                VALUES (@room_id, @full_name, @LeaseStartDate, @LeaseEndDate);";
-
-                using (SqlTransaction transaction = connection.BeginTransaction())
-                {
-                    try
-                    {
-                        using (SqlCommand command = new SqlCommand(tenantUpdateQuery, connection, transaction))
-                        {
-                            command.Parameters.AddWithValue("@room_id", roomNum);
-                            command.Parameters.AddWithValue("@move_in", moved_IN);
-                            command.Parameters.AddWithValue("@full_name", fullName);
-                            command.ExecuteNonQuery();
-                        }
-
-                        using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
-                        {
-                            command.Parameters.AddWithValue("@room_id", roomNum);
-                            command.Parameters.AddWithValue("@full_name", fullName);
-                            command.Parameters.AddWithValue("@LeaseStartDate", moved_IN);
-                            command.Parameters.AddWithValue("@LeaseEndDate", leaseEndDate);
-                            command.ExecuteNonQuery();
-                        }
-
-                        transaction.Commit();
-                        return true;
-                    }
-                    catch (SqlException)
-                    {
-                        transaction.Rollback();
-                        return false;
-                    }
-                    catch (Exception)
-                    {
-                        transaction.Rollback();
-                        return false;
-                    }
-                }
-            }
-        }
-
-        public bool AddRoom( string roomNum, double roomPrice, string tenantName)
+        public bool AddRoom(string roomNum, double roomPrice,int capacity, int kitchen, int bedroom,
+              int bathroom, DateTime moved_IN, DateTime leaseEndDate)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -86,16 +33,34 @@ namespace AppartmentSystem.ManageRoom
                 try
                 {
                     string roomQuery = @"
-                    INSERT INTO room (room_id, room_price, tenant_name)
-                    VALUES (@room_id, @room_price, @tenant_name)";
+                    INSERT INTO room (room_id, room_price, capacity, kitchen, bedroom, bathroom)
+                    VALUES (@room_id, @room_price, @capacity, @kitchen, @bedroom, @bathroom)";
 
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
-                        command.Parameters.AddWithValue("@room_price", roomPrice);
-                        command.Parameters.AddWithValue("@tenant_name", tenantName);
+                        command.Parameters.AddWithValue("@room_price",roomPrice);
+                        command.Parameters.AddWithValue("@capacity", capacity);
+                        command.Parameters.AddWithValue("@kitchen", kitchen);
+                        command.Parameters.AddWithValue("@bedroom", bedroom);
+                        command.Parameters.AddWithValue("@bathroom", bathroom);
                         command.ExecuteNonQuery();
-                    }                                  
+                    }
+
+
+                    string insertQuery = @"
+                    INSERT INTO LeaseDetails (room_id, LeaseStartDate, LeaseEndDate)
+                    VALUES (@room_id, @LeaseStartDate, @LeaseEndDate);";
+
+                    using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
+                    {
+                        command.Parameters.AddWithValue("@room_id", roomNum);
+                        command.Parameters.AddWithValue("@LeaseStartDate", moved_IN);
+                        command.Parameters.AddWithValue("@LeaseEndDate", leaseEndDate);
+                        command.ExecuteNonQuery();
+                    }
+
+
                     transaction.Commit();
                     return true;
                 }
@@ -223,10 +188,12 @@ namespace AppartmentSystem.ManageRoom
 
             string query = @"
             SELECT
-            r.room_id as 'Room Number',
-            r.tenant_name as 'Name',
-            r.room_price as 'Rent'
-            FROM room r";
+            room_id as 'House Number',
+            room_price as 'Rent',
+            capacity as 'Room Capacity',
+            kitchen as 'Kitchen',
+            bathroom as 'Bathroom'
+            FROM room";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -239,7 +206,6 @@ namespace AppartmentSystem.ManageRoom
                     }
                 }
             }
-
             return dataTable;
         }
 
@@ -316,28 +282,28 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
-        public DataTable GetEditLogs()
-        {
-            DataTable editLogs = new DataTable();
-
-            string query = @"
-            SELECT *
-            FROM logs";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            public DataTable GetEditLogs()
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
+                DataTable editLogs = new DataTable();
+
+                string query = @"
+                SELECT *
+                FROM logs";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        adapter.Fill(editLogs);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                        {
+                            adapter.Fill(editLogs);
+                        }
                     }
                 }
-            }
 
-            return editLogs;
-        }
+                return editLogs;
+            }
 
     }
 }
