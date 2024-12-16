@@ -47,7 +47,6 @@
             this.lbl_tenantFillup = new System.Windows.Forms.Label();
             this.btn_addManageTenant = new System.Windows.Forms.Button();
             this.btn_cancelManageTenant = new System.Windows.Forms.Button();
-            this.btn_backManageTenant = new System.Windows.Forms.Button();
             this.panel_tenantInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -270,17 +269,6 @@
             this.btn_cancelManageTenant.UseVisualStyleBackColor = false;
             this.btn_cancelManageTenant.Click += new System.EventHandler(this.btn_cancelManageTenant_Click);
             // 
-            // btn_backManageTenant
-            // 
-            this.btn_backManageTenant.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_backManageTenant.BackgroundImage")));
-            this.btn_backManageTenant.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_backManageTenant.Location = new System.Drawing.Point(710, 19);
-            this.btn_backManageTenant.Name = "btn_backManageTenant";
-            this.btn_backManageTenant.Size = new System.Drawing.Size(40, 35);
-            this.btn_backManageTenant.TabIndex = 17;
-            this.btn_backManageTenant.UseVisualStyleBackColor = true;
-            this.btn_backManageTenant.Click += new System.EventHandler(this.btn_backManageTenant_Click);
-            // 
             // frm_tenantProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,7 +277,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.btn_backManageTenant);
             this.Controls.Add(this.btn_cancelManageTenant);
             this.Controls.Add(this.btn_addManageTenant);
             this.Controls.Add(this.panel_tenantInfo);
@@ -329,6 +316,5 @@
         private System.Windows.Forms.Label lbl_tenantFillup;
         private System.Windows.Forms.Button btn_addManageTenant;
         private System.Windows.Forms.Button btn_cancelManageTenant;
-        private System.Windows.Forms.Button btn_backManageTenant;
     }
 }
