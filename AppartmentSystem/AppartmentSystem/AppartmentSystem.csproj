@@ -61,10 +61,10 @@
     <Compile Include="FinancialData\FinancialData.Designer.cs">
       <DependentUpon>FinancialData.cs</DependentUpon>
     </Compile>
-    <Compile Include="FinancialData\frm_addRoom.cs">
+    <Compile Include="ManageRoom\frm_addRoom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FinancialData\frm_addRoom.Designer.cs">
+    <Compile Include="ManageRoom\frm_addRoom.Designer.cs">
       <DependentUpon>frm_addRoom.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -105,11 +105,11 @@
     <Compile Include="Maintenance\Maintenance.Designer.cs">
       <DependentUpon>Maintenance.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageLease\ManageLease.cs">
+    <Compile Include="ManageLease\Lease.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageLease\ManageLease.Designer.cs">
-      <DependentUpon>ManageLease.cs</DependentUpon>
+    <Compile Include="ManageLease\Lease.Designer.cs">
+      <DependentUpon>Lease.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageLease\Archive.cs">
       <SubType>Form</SubType>
@@ -151,7 +151,7 @@
     <EmbeddedResource Include="FinancialData\FinancialData.resx">
       <DependentUpon>FinancialData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FinancialData\frm_addRoom.resx">
+    <EmbeddedResource Include="ManageRoom\frm_addRoom.resx">
       <DependentUpon>frm_addRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -172,8 +172,8 @@
     <EmbeddedResource Include="Maintenance\MaintenanceDescription.resx">
       <DependentUpon>MaintenanceDescription.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageLease\ManageLease.resx">
-      <DependentUpon>ManageLease.cs</DependentUpon>
+    <EmbeddedResource Include="ManageLease\Lease.resx">
+      <DependentUpon>Lease.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageLease\Archive.resx">

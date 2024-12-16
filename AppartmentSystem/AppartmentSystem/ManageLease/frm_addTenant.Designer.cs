@@ -34,11 +34,12 @@
             this.btn_addTenantCancel = new System.Windows.Forms.Button();
             this.btn_addTenantSave = new System.Windows.Forms.Button();
             this.lbl_editRoomtenant = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.text = new System.Windows.Forms.TextBox();
             this.lbl_editRoomroom = new System.Windows.Forms.Label();
             this.btn_addtenantBack = new System.Windows.Forms.Button();
             this.lbl_editRoomsubheader = new System.Windows.Forms.Label();
             this.lbl_header = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cb_TenantName
@@ -106,14 +107,14 @@
             this.lbl_editRoomtenant.Text = "Tenant:";
             this.lbl_editRoomtenant.Click += new System.EventHandler(this.lbl_editRoomtenant_Click);
             // 
-            // textBox1
+            // text
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(121, 172);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 27;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text.Location = new System.Drawing.Point(121, 133);
+            this.text.Name = "text";
+            this.text.Size = new System.Drawing.Size(100, 26);
+            this.text.TabIndex = 27;
+            this.text.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbl_editRoomroom
             // 
@@ -162,6 +163,16 @@
             this.lbl_header.Text = "Add Tenant";
             this.lbl_header.Click += new System.EventHandler(this.lbl_editroomheader_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.FormattingEnabled = true;
+            this.textBox1.Location = new System.Drawing.Point(121, 177);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 35;
+            // 
             // frm_addTenant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,12 +180,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cb_TenantName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_addTenantCancel);
             this.Controls.Add(this.btn_addTenantSave);
             this.Controls.Add(this.lbl_editRoomtenant);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.text);
             this.Controls.Add(this.lbl_editRoomroom);
             this.Controls.Add(this.btn_addtenantBack);
             this.Controls.Add(this.lbl_editRoomsubheader);
@@ -197,10 +209,11 @@
         private System.Windows.Forms.Button btn_addTenantCancel;
         private System.Windows.Forms.Button btn_addTenantSave;
         private System.Windows.Forms.Label lbl_editRoomtenant;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox text;
         private System.Windows.Forms.Label lbl_editRoomroom;
         private System.Windows.Forms.Button btn_addtenantBack;
         private System.Windows.Forms.Label lbl_editRoomsubheader;
         private System.Windows.Forms.Label lbl_header;
+        private System.Windows.Forms.ComboBox textBox1;
     }
 }

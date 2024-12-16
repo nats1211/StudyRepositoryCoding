@@ -1,6 +1,6 @@
 ﻿namespace AppartmentSystem
 {
-    partial class ManageLease
+    partial class Lease
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageLease));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lease));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_updateLease = new System.Windows.Forms.Button();
             this.btn_historyLease = new System.Windows.Forms.Button();
@@ -222,7 +222,6 @@
             // lbl_infoml
             // 
             this.lbl_infoml.AutoSize = true;
-            this.lbl_infoml.BackColor = System.Drawing.Color.Transparent;
             this.lbl_infoml.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_infoml.Location = new System.Drawing.Point(26, 60);
             this.lbl_infoml.Name = "lbl_infoml";

@@ -160,7 +160,6 @@
             this.btn_UpdateRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_UpdateRoom.UseVisualStyleBackColor = true;
             this.btn_UpdateRoom.Visible = false;
-            this.btn_UpdateRoom.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // btn_editRoom
             // 

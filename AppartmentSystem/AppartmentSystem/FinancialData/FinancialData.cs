@@ -108,7 +108,6 @@ namespace AppartmentSystem
             }
             else
             {
-                LoadData();
                 return;   
             }
 
@@ -155,7 +154,6 @@ namespace AppartmentSystem
                 {
                     dataGridView1.DataSource = null;
                 }
-
 
         }
 

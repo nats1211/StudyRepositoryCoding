@@ -71,7 +71,7 @@ namespace AppartmentSystem.ManageRoom
         private void btn_archiveBack_Click(object sender, EventArgs e)
         {
 
-            ManageLease lease = new ManageLease();
+            Lease lease = new Lease();
             lease.Show();
             this.Close();            
         }

@@ -87,5 +87,32 @@ namespace AppartmentSystem
             }
             return room;
         }
+
+        public DataTable getRoom()
+        {
+            DataTable room = new DataTable();
+
+            string query = @"
+            SELECT 
+            room_id as 'House Number'
+            FROM 
+            room
+            ORDER BY 
+            room_id";
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(room);
+                    }
+                }
+            }
+            return room;
+        }
     }
 }
