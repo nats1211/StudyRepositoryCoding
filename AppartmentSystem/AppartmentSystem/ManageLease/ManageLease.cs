@@ -151,6 +151,23 @@ namespace AppartmentSystem
             this.Hide();
         }
 
+        private void OpenAddLeaseForm(int rowIndex)
+        {
+            if (dataGridView1.CurrentCell != null && rowIndex >= 0)
+            {
+
+                string roomNumber = dataGridView1.Rows[rowIndex].Cells["Room Number"].Value.ToString();
+                string tenantName = dataGridView1.Rows[rowIndex].Cells["Name"].Value.ToString();
+                double roomPrice = Convert.ToDouble(dataGridView1.Rows[rowIndex].Cells["Rent"].Value);
+
+                frm_EditRoom editForm = new frm_EditRoom();
+
+                editForm.setRoomDetails(roomNumber, tenantName, roomPrice);
+                editForm.Show();
+                this.Close();
+            }
+        }
+
         private bool isButtonEnabled = true;
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -247,6 +264,21 @@ namespace AppartmentSystem
         private void ManageLease_MouseClick(object sender, MouseEventArgs e)
         {
             dataGridView1.ClearSelection();
+        }
+
+        private void btn_addLease_Click_1(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int rowIndex = dataGridView1.SelectedRows[0].Index;
+
+                OpenAddLeaseForm(rowIndex);
+            }
+            else
+            {
+                MessageBox.Show("Please select a house");
+            }
         }
 
         //kailangan ayusin yung left btn

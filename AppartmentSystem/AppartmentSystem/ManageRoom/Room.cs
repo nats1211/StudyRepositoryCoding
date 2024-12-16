@@ -298,7 +298,12 @@ namespace AppartmentSystem
 
             if (char.IsPunctuation(e.KeyChar))
             {
-                e.Handled= true;
+                e.Handled = true;
+            }
+
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
 
