@@ -94,10 +94,10 @@ namespace AppartmentSystem
                         MessageBox.Show("Invalid Username/Password");
                     }
                 }
-                catch (SqlException ex)
+                catch (SqlException)
                 {
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
                 finally

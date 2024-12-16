@@ -102,7 +102,7 @@ namespace AppartmentSystem.FinancialData
                         MessageBoxIcon.Exclamation);
                 }
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
 
                 MessageBox.Show("Check Details you input! Missing Field", "Error", MessageBoxButtons.OK,
