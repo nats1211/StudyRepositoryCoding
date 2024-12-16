@@ -101,6 +101,7 @@
             this.lbl_roomNo.Size = new System.Drawing.Size(72, 17);
             this.lbl_roomNo.TabIndex = 2;
             this.lbl_roomNo.Text = "House No.";
+            this.lbl_roomNo.Visible = false;
             // 
             // lbl_tenant
             // 
@@ -113,6 +114,7 @@
             this.lbl_tenant.Size = new System.Drawing.Size(52, 17);
             this.lbl_tenant.TabIndex = 4;
             this.lbl_tenant.Text = "Tenant:";
+            this.lbl_tenant.Visible = false;
             // 
             // txt_tenant
             // 
@@ -120,6 +122,7 @@
             this.txt_tenant.Name = "txt_tenant";
             this.txt_tenant.Size = new System.Drawing.Size(100, 20);
             this.txt_tenant.TabIndex = 5;
+            this.txt_tenant.Visible = false;
             this.txt_tenant.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_tenant_MouseClick);
             this.txt_tenant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_tenant_KeyPress);
             // 
@@ -134,6 +137,7 @@
             this.lbl_movedIn.Size = new System.Drawing.Size(69, 17);
             this.lbl_movedIn.TabIndex = 6;
             this.lbl_movedIn.Text = "Moved In:";
+            this.lbl_movedIn.Visible = false;
             // 
             // lbl_price
             // 
@@ -147,6 +151,7 @@
             this.lbl_price.Size = new System.Drawing.Size(40, 17);
             this.lbl_price.TabIndex = 7;
             this.lbl_price.Text = "Price:";
+            this.lbl_price.Visible = false;
             // 
             // btn_UpdateRoom
             // 
@@ -202,6 +207,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 13;
+            this.dateTimePicker1.Visible = false;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // txt_price
@@ -212,6 +218,7 @@
             this.txt_price.Name = "txt_price";
             this.txt_price.Size = new System.Drawing.Size(151, 20);
             this.txt_price.TabIndex = 15;
+            this.txt_price.Visible = false;
             this.txt_price.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt_price_MouseClick);
             this.txt_price.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_price_KeyPress);
             // 
@@ -277,6 +284,7 @@
             this.txt_RoomNo.Name = "txt_RoomNo";
             this.txt_RoomNo.Size = new System.Drawing.Size(122, 21);
             this.txt_RoomNo.TabIndex = 21;
+            this.txt_RoomNo.Visible = false;
             this.txt_RoomNo.Leave += new System.EventHandler(this.txt_RoomNo_Leave);
             // 
             // frm_room
