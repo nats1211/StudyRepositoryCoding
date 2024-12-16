@@ -77,19 +77,6 @@ namespace AppartmentSystem
             this.Close();
         }
 
-        public bool IsRoomExists(string roomId)
-        {
-            foreach (DataGridViewRow row in dg_ManageRoom.Rows)
-            {
-                if (row.Cells["House Number"].Value != null && row.Cells["House Number"].Value.ToString() == roomId)
-                { 
-
-                    return true;                  
-                }
-            }
-            return false;
-        }
-
         private void LoadRoomComboBox()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -251,12 +238,11 @@ namespace AppartmentSystem
             {
 
                 string roomNumber = dg_ManageRoom.Rows[rowIndex].Cells["House Number"].Value.ToString();
-                string tenantName = dg_ManageRoom.Rows[rowIndex].Cells["Name"].Value.ToString();
                 double roomPrice = Convert.ToDouble(dg_ManageRoom.Rows[rowIndex].Cells["Rent"].Value);
 
                 frm_EditRoom editForm = new frm_EditRoom();             
 
-                editForm.setRoomDetails(roomNumber, tenantName, roomPrice);
+                editForm.setRoomDetails(roomNumber, roomPrice);
                 editForm.Show();
                 this.Close();
             }

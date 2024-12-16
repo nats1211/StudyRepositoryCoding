@@ -108,7 +108,6 @@ namespace AppartmentSystem
             }
             else
             {
-                LoadData();
                 return;   
             }
 

@@ -51,7 +51,7 @@ namespace AppartmentSystem
             string query = @"
             SELECT
             r.room_id AS 'Room Number',
-            r.tenant_name AS 'Name',
+            CONCAT(t.last_name, ' ', t.first_name, ' ', t.middle_name) AS 'Name',
             SUM(ISNULL(m.Amount, 0)) AS 'Maintenance Cost',
             r.room_price AS 'Room Price'
             FROM
@@ -62,8 +62,10 @@ namespace AppartmentSystem
             Expenses m ON m.room_id = r.room_id
             GROUP BY
             r.room_id,
-            r.tenant_name,
-            r.room_price       
+            r.room_price,
+            t.last_name,
+            t.first_name,
+            t.middle_name       
             ORDER BY   
             r.room_id;";
 

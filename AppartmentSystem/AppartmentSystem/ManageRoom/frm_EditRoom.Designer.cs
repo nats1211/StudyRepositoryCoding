@@ -40,7 +40,6 @@
             this.btn_editRoomSave = new System.Windows.Forms.Button();
             this.btn_editRoomCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cb_TenantName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbl_editroomheader
@@ -168,16 +167,6 @@
             this.label1.Size = new System.Drawing.Size(450, 179);
             this.label1.TabIndex = 12;
             // 
-            // cb_TenantName
-            // 
-            this.cb_TenantName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_TenantName.FormattingEnabled = true;
-            this.cb_TenantName.Location = new System.Drawing.Point(113, 216);
-            this.cb_TenantName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cb_TenantName.Name = "cb_TenantName";
-            this.cb_TenantName.Size = new System.Drawing.Size(100, 21);
-            this.cb_TenantName.TabIndex = 22;
-            // 
             // frm_EditRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +174,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cb_TenantName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_editRoomCancel);
             this.Controls.Add(this.btn_editRoomSave);
@@ -222,6 +210,5 @@
         private System.Windows.Forms.Button btn_editRoomSave;
         private System.Windows.Forms.Button btn_editRoomCancel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cb_TenantName;
     }
 }

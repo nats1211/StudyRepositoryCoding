@@ -28,39 +28,7 @@ namespace AppartmentSystem.FinancialData
         private void btn_addRoomSave_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                roomAddingDAL add = new roomAddingDAL(connectionString);
-                frm_room formHouse = new frm_room();
-
-                string houseNumber = txt_roomAddroom.Text;
-                double rent = Convert.ToDouble(txt_priceAddroom.Text);
-                int capacity = Convert.ToInt32(cb_paxAddroom.Text);
-                int kitchen = Convert.ToInt32(cb_kitchenAddroom.Text);
-                int bedroom = Convert.ToInt32(cb_bedroomAddroom.Text);
-                int bathroom = Convert.ToInt32(cb_bathroomAddroom.Text);
-                DateTime movedIn = DateTime.Now;
-                DateTime moved_out = movedIn.AddMonths(1);
-
-                bool addRoom = add.AddRoom(houseNumber, rent, capacity, kitchen, bedroom, bathroom, movedIn, moved_out);
-
-                if (addRoom)
-                {
-                    MessageBox.Show("House added successfully", "", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Check Details you input! Duplicate House Number", "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Exclamation);
-                }
-            }
-            catch (FormatException ex)
-            {
-
-                MessageBox.Show("Check Details you input! Missing Field", "Error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Exclamation);
-            }
+            
             
         }
 
@@ -87,6 +55,59 @@ namespace AppartmentSystem.FinancialData
             cb_bathroomAddroom.Items.Add("2");
             cb_bathroomAddroom.Items.Add("3");
             cb_bathroomAddroom.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void btn_addRoomCancel_Click(object sender, EventArgs e)
+        {
+            var sure = MessageBox.Show("Are you sure you want to cancel?", ""
+                , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (DialogResult.OK == sure)
+            {
+
+                frm_room room = new frm_room();
+                room.Show();
+                this.Close();
+            }
+            else if (DialogResult.Cancel == sure)
+            {
+
+                return;
+            }
+        }
+
+        private void btn_addRoomSave_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                roomAddingDAL add = new roomAddingDAL(connectionString);
+
+                string houseNumber = txt_roomAddroom.Text;
+                double rent = Convert.ToDouble(txt_priceAddroom.Text);
+                int capacity = Convert.ToInt32(cb_paxAddroom.Text);
+                int kitchen = Convert.ToInt32(cb_kitchenAddroom.Text);
+                int bedroom = Convert.ToInt32(cb_bedroomAddroom.Text);
+                int bathroom = Convert.ToInt32(cb_bathroomAddroom.Text);
+
+                bool addRoom = add.AddRoom(houseNumber, rent, capacity, kitchen, bedroom, bathroom);
+
+                if (addRoom)
+                {
+                    MessageBox.Show("House added successfully", "", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Check Details you input! Duplicate House Number", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation);
+                }
+            }
+            catch (FormatException ex)
+            {
+
+                MessageBox.Show("Check Details you input! Missing Field", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation);
+            }
         }
     }
 }

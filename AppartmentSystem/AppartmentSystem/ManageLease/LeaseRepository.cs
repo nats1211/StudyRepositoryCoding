@@ -245,6 +245,102 @@ namespace AppartmentSystem
             }
             return dataTable;
         }
+
+        public bool AddTenant(string tenantName, string houseNumber, DateTime leaseStart, DateTime leaseEndDate)
+        {
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+
+                        string checkQuery = @"
+                        SELECT COUNT(1)
+                        FROM LeaseDetails
+                        WHERE room_id = @room_id AND tenant_name = @tenant_name";
+
+                        using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection, transaction))
+                        {
+                            checkCommand.Parameters.AddWithValue("@room_id", houseNumber);
+                            checkCommand.Parameters.AddWithValue("@tenant_name", tenantName);
+
+                            int count = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                            if (count > 0)
+                            {
+                                MessageBox.Show("The tenant is already assigned to this room.");
+                                transaction.Rollback();
+                                return false;
+                            }
+                        }
+                        string insertQuery = @"
+                        INSERT INTO LeaseDetails (room_id, LeaseStartDate, LeaseEndDate, tenant_name)
+                        VALUES (@room_id, @LeaseStartDate, @LeaseEndDate, @tenant_name);";
+
+                        using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
+                        {
+                            command.Parameters.AddWithValue("@room_id", houseNumber);
+                            command.Parameters.AddWithValue("@tenant_name", tenantName);
+                            command.Parameters.AddWithValue("@LeaseStartDate", leaseStart);
+                            command.Parameters.AddWithValue("@LeaseEndDate", leaseEndDate);
+                            command.ExecuteNonQuery();
+                        }
+
+                        string tenantQueryCheck = @"
+                        SELECT COUNT(*)
+                        FROM tenant
+                        WHERE CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) = @fullName AND room_id IS NOT NULL";
+
+                        using (var checkCommand = new SqlCommand(tenantQueryCheck, connection, transaction))
+                        {
+                            checkCommand.Parameters.AddWithValue("@fullName", tenantName);
+                            int existingRoomCount = (int)checkCommand.ExecuteScalar();
+
+                            if (existingRoomCount > 0)
+                            {
+
+                                MessageBox.Show("This tenant already has a room assigned.");
+                                return false;
+                            }
+                            else
+                            {
+
+                                string tenantQueryUpdate = @"
+                            UPDATE tenant
+                            SET 
+                            room_id = @room_id, move_in = @move_in
+                            WHERE CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) = @fullName";
+
+                                using (SqlCommand updateCommand = new SqlCommand(tenantQueryUpdate, connection, transaction))
+                                {
+                                    updateCommand.Parameters.AddWithValue("@fullName", tenantName);
+                                    updateCommand.Parameters.AddWithValue("@room_id", houseNumber);
+                                    updateCommand.Parameters.AddWithValue("@move_in", leaseStart);
+                                    updateCommand.ExecuteNonQuery();
+                                }
+
+                            }
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (SqlException ex)
+                    {
+                        transaction.Rollback();
+                        return false;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }
 

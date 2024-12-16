@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Runtime.Remoting.Lifetime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,10 +20,10 @@ namespace AppartmentSystem.ManageRoom
         public roomAddingDAL(string connString)
         {
               connectionString = connString;
-        }     
+        }
 
-        public bool AddRoom(string roomNum, double roomPrice,int capacity, int kitchen, int bedroom,
-              int bathroom, DateTime moved_IN, DateTime leaseEndDate)
+        public bool AddRoom(string roomNum, double roomPrice, int capacity, int kitchen, int bedroom,
+        int bathroom)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -39,27 +40,13 @@ namespace AppartmentSystem.ManageRoom
                     using (SqlCommand command = new SqlCommand(roomQuery, connection, transaction))
                     {
                         command.Parameters.AddWithValue("@room_id", roomNum);
-                        command.Parameters.AddWithValue("@room_price",roomPrice);
+                        command.Parameters.AddWithValue("@room_price", roomPrice);
                         command.Parameters.AddWithValue("@capacity", capacity);
                         command.Parameters.AddWithValue("@kitchen", kitchen);
                         command.Parameters.AddWithValue("@bedroom", bedroom);
                         command.Parameters.AddWithValue("@bathroom", bathroom);
                         command.ExecuteNonQuery();
                     }
-
-
-                    string insertQuery = @"
-                    INSERT INTO LeaseDetails (room_id, LeaseStartDate, LeaseEndDate)
-                    VALUES (@room_id, @LeaseStartDate, @LeaseEndDate);";
-
-                    using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
-                    {
-                        command.Parameters.AddWithValue("@room_id", roomNum);
-                        command.Parameters.AddWithValue("@LeaseStartDate", moved_IN);
-                        command.Parameters.AddWithValue("@LeaseEndDate", leaseEndDate);
-                        command.ExecuteNonQuery();
-                    }
-
 
                     transaction.Commit();
                     return true;
@@ -124,17 +111,9 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
-        public bool EditRoom(string roomId, string tenantName, double room_price, DateTime leaseDate)
+        public bool EditRoom(string roomId,double room_price, DateTime leaseDate)
         {
-            string roomQuery =   @"UPDATE room SET room_price = @room_price, tenant_name = @tenant_name WHERE room_id = @room_id";
-            string tenantQuery = @"UPDATE tenant 
-                                 SET room_id = @room_id, move_in = @move_in 
-                                 WHERE CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) = @full_name";
-
-            string leaseQuery = @"
-            UPDATE LeaseDetails
-            SET tenant_name = @tenant_name
-            WHERE room_id = @room_id";
+            string roomQuery =   @"UPDATE room SET room_price = @room_price WHERE room_id = @room_id";
 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -146,27 +125,11 @@ namespace AppartmentSystem.ManageRoom
                 try
                 {
                 
-                    using(SqlCommand Expensecommand = new SqlCommand(leaseQuery, connection, transaction))
-                    {
-                        Expensecommand.Parameters.AddWithValue("@room_id", roomId);
-                        Expensecommand.Parameters.AddWithValue("@tenant_name", tenantName);
-                        Expensecommand.ExecuteNonQuery();
-                    }
-
                     using(SqlCommand roomCommand = new SqlCommand(roomQuery, connection, transaction))
                     {
                         roomCommand.Parameters.AddWithValue("@room_id",roomId);
                         roomCommand.Parameters.AddWithValue("@room_price", room_price);
-                        roomCommand.Parameters.AddWithValue("@tenant_name", tenantName);
                         roomCommand.ExecuteNonQuery();
-                    }
-
-                    using (SqlCommand tenantCommand = new SqlCommand(tenantQuery, connection, transaction))
-                    {
-                        tenantCommand.Parameters.AddWithValue("@room_id", roomId);
-                        tenantCommand.Parameters.AddWithValue("@full_name", tenantName);
-                        tenantCommand.Parameters.AddWithValue("@move_in", leaseDate);
-                        tenantCommand.ExecuteNonQuery();
                     }
 
                     transaction.Commit();
@@ -282,7 +245,7 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
-            public DataTable GetEditLogs()
+         public DataTable GetEditLogs()
             {
                 DataTable editLogs = new DataTable();
 

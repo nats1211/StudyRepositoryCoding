@@ -31,7 +31,6 @@ C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSys
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.Maintenance.frm_addMaintenance.resources
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.Frm_Maintenance.resources
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.Maintenance.MaintenanceDescription.resources
-C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.ManageLease.resources
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.ManageRoom.frm_Archive.resources
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.ManageRoom.frm_EditRoom.resources
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.ManageRoom.frm_EditRoomLog.resources
@@ -89,3 +88,4 @@ C:\Users\63922\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSys
 C:\Users\admin\source\repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.FinancialData.frm_addRoom.resources
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.FinancialData.frm_addRoom.resources
 C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.ManageLease.frm_addTenant.resources
+C:\Users\burgo\Source\Repos\StudyRepositoryCoding\AppartmentSystem\AppartmentSystem\obj\Debug\AppartmentSystem.Lease.resources

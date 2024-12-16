@@ -214,6 +214,7 @@
             this.btn_addRoomCancel.TabIndex = 17;
             this.btn_addRoomCancel.Text = "     Cancel";
             this.btn_addRoomCancel.UseVisualStyleBackColor = false;
+            this.btn_addRoomCancel.Click += new System.EventHandler(this.btn_addRoomCancel_Click);
             // 
             // btn_addRoomSave
             // 
@@ -229,6 +230,7 @@
             this.btn_addRoomSave.TabIndex = 16;
             this.btn_addRoomSave.Text = "        Save";
             this.btn_addRoomSave.UseVisualStyleBackColor = false;
+            this.btn_addRoomSave.Click += new System.EventHandler(this.btn_addRoomSave_Click_1);
             // 
             // frm_addRoom
             // 

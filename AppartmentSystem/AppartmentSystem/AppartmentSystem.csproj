@@ -105,11 +105,11 @@
     <Compile Include="Maintenance\Maintenance.Designer.cs">
       <DependentUpon>Maintenance.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageLease\ManageLease.cs">
+    <Compile Include="ManageLease\Lease.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageLease\ManageLease.Designer.cs">
-      <DependentUpon>ManageLease.cs</DependentUpon>
+    <Compile Include="ManageLease\Lease.Designer.cs">
+      <DependentUpon>Lease.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageLease\Archive.cs">
       <SubType>Form</SubType>
@@ -172,8 +172,8 @@
     <EmbeddedResource Include="Maintenance\MaintenanceDescription.resx">
       <DependentUpon>MaintenanceDescription.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageLease\ManageLease.resx">
-      <DependentUpon>ManageLease.cs</DependentUpon>
+    <EmbeddedResource Include="ManageLease\Lease.resx">
+      <DependentUpon>Lease.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageLease\Archive.resx">
