@@ -55,9 +55,9 @@
             this.lbl_room.Location = new System.Drawing.Point(679, 196);
             this.lbl_room.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_room.Name = "lbl_room";
-            this.lbl_room.Size = new System.Drawing.Size(44, 17);
+            this.lbl_room.Size = new System.Drawing.Size(47, 17);
             this.lbl_room.TabIndex = 0;
-            this.lbl_room.Text = "Room";
+            this.lbl_room.Text = "House";
             // 
             // cb_roomaddMaintenance
             // 
