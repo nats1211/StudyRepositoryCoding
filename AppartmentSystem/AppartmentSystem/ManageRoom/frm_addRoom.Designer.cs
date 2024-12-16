@@ -75,7 +75,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(64, 174);
+            this.label1.Location = new System.Drawing.Point(64, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 20);
             this.label1.TabIndex = 2;
@@ -86,11 +86,11 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(58, 133);
+            this.label2.Location = new System.Drawing.Point(30, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.Size = new System.Drawing.Size(81, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Room:";
+            this.label2.Text = "House No:";
             // 
             // label3
             // 
@@ -105,14 +105,14 @@
             // 
             // txt_priceAddroom
             // 
-            this.txt_priceAddroom.Location = new System.Drawing.Point(117, 174);
+            this.txt_priceAddroom.Location = new System.Drawing.Point(117, 125);
             this.txt_priceAddroom.Name = "txt_priceAddroom";
             this.txt_priceAddroom.Size = new System.Drawing.Size(100, 20);
             this.txt_priceAddroom.TabIndex = 5;
             // 
             // txt_roomAddroom
             // 
-            this.txt_roomAddroom.Location = new System.Drawing.Point(117, 133);
+            this.txt_roomAddroom.Location = new System.Drawing.Point(117, 170);
             this.txt_roomAddroom.Name = "txt_roomAddroom";
             this.txt_roomAddroom.Size = new System.Drawing.Size(100, 20);
             this.txt_roomAddroom.TabIndex = 6;
@@ -229,7 +229,6 @@
             this.btn_addRoomSave.TabIndex = 16;
             this.btn_addRoomSave.Text = "        Save";
             this.btn_addRoomSave.UseVisualStyleBackColor = false;
-            this.btn_addRoomSave.Click += new System.EventHandler(this.btn_addRoomSave_Click);
             // 
             // frm_addRoom
             // 

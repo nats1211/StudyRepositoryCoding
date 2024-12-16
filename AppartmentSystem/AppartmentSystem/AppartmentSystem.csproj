@@ -73,6 +73,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageLease\frm_addTenant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLease\frm_addTenant.Designer.cs">
+      <DependentUpon>frm_addTenant.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageTenant\frm_tenantProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageLease\frm_addTenant.resx">
+      <DependentUpon>frm_addTenant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageTenant\frm_tenantProfile.resx">
       <DependentUpon>frm_tenantProfile.cs</DependentUpon>
