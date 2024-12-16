@@ -103,18 +103,6 @@ namespace AppartmentSystem
                             leaseCommand.ExecuteNonQuery();
                         }
 
-                        string RoomQuery = @"
-                        UPDATE room
-                        SET
-                        tenant_name = NULL
-                        WHERE room_id = @roomId";
-
-                        using (var roomCommand = new SqlCommand(RoomQuery, connection, transaction))
-                        {
-                            roomCommand.Parameters.AddWithValue("@roomId", roomNumber);
-                            roomCommand.ExecuteNonQuery();
-                        }
-
                         string tenantQuery = @"
                         UPDATE tenant
                         SET
@@ -276,11 +264,16 @@ namespace AppartmentSystem
                                 return false;
                             }
                         }
-                        string insertQuery = @"
-                        INSERT INTO LeaseDetails (room_id, LeaseStartDate, LeaseEndDate, tenant_name)
-                        VALUES (@room_id, @LeaseStartDate, @LeaseEndDate, @tenant_name);";
 
-                        using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
+                        string updateQuery = @"
+                        UPDATE LeaseDetails
+                        SET 
+                        LeaseStartDate = @LeaseStartDate,
+                        LeaseEndDate = @LeaseEndDate,
+                        tenant_name = @tenant_name
+                        WHERE room_id = @room_id;";
+
+                        using (SqlCommand command = new SqlCommand(updateQuery, connection, transaction))
                         {
                             command.Parameters.AddWithValue("@room_id", houseNumber);
                             command.Parameters.AddWithValue("@tenant_name", tenantName);

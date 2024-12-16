@@ -89,8 +89,10 @@ namespace AppartmentSystem.FinancialData
                 int kitchen = Convert.ToInt32(cb_kitchenAddroom.Text);
                 int bedroom = Convert.ToInt32(cb_bedroomAddroom.Text);
                 int bathroom = Convert.ToInt32(cb_bathroomAddroom.Text);
+                DateTime movedIn = DateTime.Now;
+                DateTime moved_out = movedIn.AddMonths(1);
 
-                bool addRoom = add.AddRoom(houseNumber, rent, capacity, kitchen, bedroom, bathroom);
+                bool addRoom = add.AddRoom(houseNumber, rent, capacity, kitchen, bedroom, bathroom, movedIn, moved_out);
 
                 if (addRoom)
                 {

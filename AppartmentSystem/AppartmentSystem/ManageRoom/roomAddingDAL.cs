@@ -23,7 +23,7 @@ namespace AppartmentSystem.ManageRoom
         }
 
         public bool AddRoom(string roomNum, double roomPrice, int capacity, int kitchen, int bedroom,
-        int bathroom)
+        int bathroom, DateTime leaseStart, DateTime leaseEndDate)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -45,6 +45,18 @@ namespace AppartmentSystem.ManageRoom
                         command.Parameters.AddWithValue("@kitchen", kitchen);
                         command.Parameters.AddWithValue("@bedroom", bedroom);
                         command.Parameters.AddWithValue("@bathroom", bathroom);
+                        command.ExecuteNonQuery();
+                    }
+
+                    string insertQuery = @"
+                        INSERT INTO LeaseDetails (room_id, LeaseStartDate, LeaseEndDate)
+                        VALUES (@room_id, @LeaseStartDate, @LeaseEndDate)";
+
+                    using (SqlCommand command = new SqlCommand(insertQuery, connection, transaction))
+                    {
+                        command.Parameters.AddWithValue("@room_id", roomNum);
+                        command.Parameters.AddWithValue("@LeaseStartDate", leaseStart);
+                        command.Parameters.AddWithValue("@LeaseEndDate", leaseEndDate);
                         command.ExecuteNonQuery();
                     }
 

@@ -246,7 +246,7 @@
             this.btn_addLease.UseVisualStyleBackColor = false;
             this.btn_addLease.Click += new System.EventHandler(this.btn_addLease_Click_1);
             // 
-            // ManageLease
+            // Lease
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,7 +264,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel_sample);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "ManageLease";
+            this.Name = "Lease";
             this.Text = "ManageLease";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ManageLease_Load);
