@@ -63,7 +63,7 @@ namespace AppartmentSystem
             btn_financialData.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_financialData.Width, btn_financialData.Height, 15, 15));
             btn_manageLeases.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_manageLeases.Width, btn_manageLeases.Height, 15, 15));
             btn_manageRoom.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_manageRoom.Width, btn_manageRoom.Height, 15, 15));
-            btn_tenantProfile.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_tenantProfile.Width, btn_tenantProfile.Height, 15, 15));
+            btn_tenantProfile.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_tenantProfile.Width, btn_tenantProfile.Height, 20, 20));
 
            
         }
