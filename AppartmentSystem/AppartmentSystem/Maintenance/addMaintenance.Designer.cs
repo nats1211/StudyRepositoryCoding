@@ -55,7 +55,7 @@
             this.lbl_room.Location = new System.Drawing.Point(679, 196);
             this.lbl_room.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_room.Name = "lbl_room";
-            this.lbl_room.Size = new System.Drawing.Size(56, 23);
+            this.lbl_room.Size = new System.Drawing.Size(44, 17);
             this.lbl_room.TabIndex = 0;
             this.lbl_room.Text = "Room";
             // 
@@ -67,7 +67,7 @@
             this.cb_roomaddMaintenance.Location = new System.Drawing.Point(731, 192);
             this.cb_roomaddMaintenance.Margin = new System.Windows.Forms.Padding(4);
             this.cb_roomaddMaintenance.Name = "cb_roomaddMaintenance";
-            this.cb_roomaddMaintenance.Size = new System.Drawing.Size(160, 29);
+            this.cb_roomaddMaintenance.Size = new System.Drawing.Size(160, 25);
             this.cb_roomaddMaintenance.TabIndex = 1;
             // 
             // btn_addMaintenanceInfo
@@ -126,7 +126,7 @@
             this.label_header.Location = new System.Drawing.Point(61, 16);
             this.label_header.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_header.Name = "label_header";
-            this.label_header.Size = new System.Drawing.Size(356, 54);
+            this.label_header.Size = new System.Drawing.Size(284, 45);
             this.label_header.TabIndex = 6;
             this.label_header.Text = "Add Maintenance";
             // 
@@ -138,7 +138,7 @@
             this.lbl_subheader.Location = new System.Drawing.Point(72, 80);
             this.lbl_subheader.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_subheader.Name = "lbl_subheader";
-            this.lbl_subheader.Size = new System.Drawing.Size(345, 20);
+            this.lbl_subheader.Size = new System.Drawing.Size(277, 15);
             this.lbl_subheader.TabIndex = 7;
             this.lbl_subheader.Text = "Can add and show Information about Maintenance";
             // 
@@ -150,7 +150,7 @@
             this.lbl_expenseType.Location = new System.Drawing.Point(85, 196);
             this.lbl_expenseType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_expenseType.Name = "lbl_expenseType";
-            this.lbl_expenseType.Size = new System.Drawing.Size(114, 23);
+            this.lbl_expenseType.Size = new System.Drawing.Size(90, 17);
             this.lbl_expenseType.TabIndex = 8;
             this.lbl_expenseType.Text = "Expense Type";
             // 
@@ -160,7 +160,7 @@
             this.cb_addExpenseType.Location = new System.Drawing.Point(207, 192);
             this.cb_addExpenseType.Margin = new System.Windows.Forms.Padding(4);
             this.cb_addExpenseType.Name = "cb_addExpenseType";
-            this.cb_addExpenseType.Size = new System.Drawing.Size(160, 29);
+            this.cb_addExpenseType.Size = new System.Drawing.Size(160, 25);
             this.cb_addExpenseType.TabIndex = 9;
             // 
             // lbl_addDate
@@ -172,7 +172,7 @@
             this.lbl_addDate.Location = new System.Drawing.Point(969, 196);
             this.lbl_addDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_addDate.Name = "lbl_addDate";
-            this.lbl_addDate.Size = new System.Drawing.Size(46, 23);
+            this.lbl_addDate.Size = new System.Drawing.Size(36, 17);
             this.lbl_addDate.TabIndex = 10;
             this.lbl_addDate.Text = "Date";
             // 
@@ -182,7 +182,7 @@
             this.dp_addMaintenance.Location = new System.Drawing.Point(1013, 193);
             this.dp_addMaintenance.Margin = new System.Windows.Forms.Padding(4);
             this.dp_addMaintenance.Name = "dp_addMaintenance";
-            this.dp_addMaintenance.Size = new System.Drawing.Size(265, 29);
+            this.dp_addMaintenance.Size = new System.Drawing.Size(265, 25);
             this.dp_addMaintenance.TabIndex = 11;
             // 
             // lbl_addAmount
@@ -193,7 +193,7 @@
             this.lbl_addAmount.Location = new System.Drawing.Point(436, 196);
             this.lbl_addAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_addAmount.Name = "lbl_addAmount";
-            this.lbl_addAmount.Size = new System.Drawing.Size(72, 23);
+            this.lbl_addAmount.Size = new System.Drawing.Size(58, 17);
             this.lbl_addAmount.TabIndex = 12;
             this.lbl_addAmount.Text = "Amount";
             // 
@@ -202,7 +202,7 @@
             this.txt_addAmount.Location = new System.Drawing.Point(502, 192);
             this.txt_addAmount.Margin = new System.Windows.Forms.Padding(4);
             this.txt_addAmount.Name = "txt_addAmount";
-            this.txt_addAmount.Size = new System.Drawing.Size(132, 29);
+            this.txt_addAmount.Size = new System.Drawing.Size(132, 25);
             this.txt_addAmount.TabIndex = 13;
             // 
             // lbl_descriptionTitle
@@ -213,7 +213,7 @@
             this.lbl_descriptionTitle.Location = new System.Drawing.Point(68, 267);
             this.lbl_descriptionTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_descriptionTitle.Name = "lbl_descriptionTitle";
-            this.lbl_descriptionTitle.Size = new System.Drawing.Size(204, 46);
+            this.lbl_descriptionTitle.Size = new System.Drawing.Size(164, 37);
             this.lbl_descriptionTitle.TabIndex = 14;
             this.lbl_descriptionTitle.Text = "Description:\r\n";
             // 
@@ -228,7 +228,7 @@
             // 
             // frm_addMaintenance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));

@@ -125,5 +125,10 @@ namespace AppartmentSystem.ManageLease
         {
 
         }
+
+        private void frm_addTenant_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_EditRoom));
             this.lbl_editroomheader = new System.Windows.Forms.Label();
             this.lbl_editRoomsubheader = new System.Windows.Forms.Label();
-            this.btn_editRoomBack = new System.Windows.Forms.Button();
             this.lbl_editRoomroom = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbl_editRoomtenant = new System.Windows.Forms.Label();
@@ -63,17 +62,6 @@
             this.lbl_editRoomsubheader.Size = new System.Drawing.Size(140, 15);
             this.lbl_editRoomsubheader.TabIndex = 1;
             this.lbl_editRoomsubheader.Text = "Can Edit Details Of Room";
-            // 
-            // btn_editRoomBack
-            // 
-            this.btn_editRoomBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_editRoomBack.BackgroundImage")));
-            this.btn_editRoomBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_editRoomBack.Location = new System.Drawing.Point(715, 24);
-            this.btn_editRoomBack.Name = "btn_editRoomBack";
-            this.btn_editRoomBack.Size = new System.Drawing.Size(45, 40);
-            this.btn_editRoomBack.TabIndex = 2;
-            this.btn_editRoomBack.UseVisualStyleBackColor = true;
-            this.btn_editRoomBack.Click += new System.EventHandler(this.btn_editRoomBack_Click);
             // 
             // lbl_editRoomroom
             // 
@@ -182,7 +170,6 @@
             this.Controls.Add(this.lbl_editRoomtenant);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbl_editRoomroom);
-            this.Controls.Add(this.btn_editRoomBack);
             this.Controls.Add(this.lbl_editRoomsubheader);
             this.Controls.Add(this.lbl_editroomheader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -201,7 +188,6 @@
 
         private System.Windows.Forms.Label lbl_editroomheader;
         private System.Windows.Forms.Label lbl_editRoomsubheader;
-        private System.Windows.Forms.Button btn_editRoomBack;
         private System.Windows.Forms.Label lbl_editRoomroom;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbl_editRoomtenant;

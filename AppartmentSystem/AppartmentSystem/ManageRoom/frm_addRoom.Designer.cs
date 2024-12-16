@@ -37,7 +37,6 @@
             this.txt_priceAddroom = new System.Windows.Forms.TextBox();
             this.txt_roomAddroom = new System.Windows.Forms.TextBox();
             this.cb_paxAddroom = new System.Windows.Forms.ComboBox();
-            this.btn_backaddRoom = new System.Windows.Forms.Button();
             this.lbl_logo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cb_kitchenAddroom = new System.Windows.Forms.ComboBox();
@@ -124,16 +123,6 @@
             this.cb_paxAddroom.Name = "cb_paxAddroom";
             this.cb_paxAddroom.Size = new System.Drawing.Size(100, 21);
             this.cb_paxAddroom.TabIndex = 7;
-            // 
-            // btn_backaddRoom
-            // 
-            this.btn_backaddRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_backaddRoom.BackgroundImage")));
-            this.btn_backaddRoom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_backaddRoom.Location = new System.Drawing.Point(713, 13);
-            this.btn_backaddRoom.Name = "btn_backaddRoom";
-            this.btn_backaddRoom.Size = new System.Drawing.Size(45, 35);
-            this.btn_backaddRoom.TabIndex = 8;
-            this.btn_backaddRoom.UseVisualStyleBackColor = true;
             // 
             // lbl_logo
             // 
@@ -248,7 +237,6 @@
             this.Controls.Add(this.cb_kitchenAddroom);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbl_logo);
-            this.Controls.Add(this.btn_backaddRoom);
             this.Controls.Add(this.cb_paxAddroom);
             this.Controls.Add(this.txt_roomAddroom);
             this.Controls.Add(this.txt_priceAddroom);
@@ -278,7 +266,6 @@
         private System.Windows.Forms.TextBox txt_priceAddroom;
         private System.Windows.Forms.TextBox txt_roomAddroom;
         private System.Windows.Forms.ComboBox cb_paxAddroom;
-        private System.Windows.Forms.Button btn_backaddRoom;
         private System.Windows.Forms.Label lbl_logo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cb_kitchenAddroom;
