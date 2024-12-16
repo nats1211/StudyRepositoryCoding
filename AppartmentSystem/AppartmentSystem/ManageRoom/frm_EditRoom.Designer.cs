@@ -33,7 +33,6 @@
             this.lbl_editRoomsubheader = new System.Windows.Forms.Label();
             this.lbl_editRoomroom = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lbl_editRoomtenant = new System.Windows.Forms.Label();
             this.lbl_editRoomprice = new System.Windows.Forms.Label();
             this.txt_editRoomprice = new System.Windows.Forms.TextBox();
             this.btn_editRoomSave = new System.Windows.Forms.Button();
@@ -83,23 +82,12 @@
             this.textBox1.TabIndex = 4;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // lbl_editRoomtenant
-            // 
-            this.lbl_editRoomtenant.AutoSize = true;
-            this.lbl_editRoomtenant.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_editRoomtenant.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_editRoomtenant.Location = new System.Drawing.Point(51, 216);
-            this.lbl_editRoomtenant.Name = "lbl_editRoomtenant";
-            this.lbl_editRoomtenant.Size = new System.Drawing.Size(59, 20);
-            this.lbl_editRoomtenant.TabIndex = 5;
-            this.lbl_editRoomtenant.Text = "Tenant:";
-            // 
             // lbl_editRoomprice
             // 
             this.lbl_editRoomprice.AutoSize = true;
             this.lbl_editRoomprice.BackColor = System.Drawing.Color.Transparent;
             this.lbl_editRoomprice.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_editRoomprice.Location = new System.Drawing.Point(60, 264);
+            this.lbl_editRoomprice.Location = new System.Drawing.Point(60, 222);
             this.lbl_editRoomprice.Name = "lbl_editRoomprice";
             this.lbl_editRoomprice.Size = new System.Drawing.Size(47, 20);
             this.lbl_editRoomprice.TabIndex = 7;
@@ -108,7 +96,7 @@
             // txt_editRoomprice
             // 
             this.txt_editRoomprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_editRoomprice.Location = new System.Drawing.Point(113, 261);
+            this.txt_editRoomprice.Location = new System.Drawing.Point(113, 219);
             this.txt_editRoomprice.Name = "txt_editRoomprice";
             this.txt_editRoomprice.Size = new System.Drawing.Size(100, 26);
             this.txt_editRoomprice.TabIndex = 8;
@@ -167,7 +155,6 @@
             this.Controls.Add(this.btn_editRoomSave);
             this.Controls.Add(this.txt_editRoomprice);
             this.Controls.Add(this.lbl_editRoomprice);
-            this.Controls.Add(this.lbl_editRoomtenant);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbl_editRoomroom);
             this.Controls.Add(this.lbl_editRoomsubheader);
@@ -190,7 +177,6 @@
         private System.Windows.Forms.Label lbl_editRoomsubheader;
         private System.Windows.Forms.Label lbl_editRoomroom;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label lbl_editRoomtenant;
         private System.Windows.Forms.Label lbl_editRoomprice;
         private System.Windows.Forms.TextBox txt_editRoomprice;
         private System.Windows.Forms.Button btn_editRoomSave;
