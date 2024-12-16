@@ -74,6 +74,8 @@ namespace AppartmentSystem
 
             btn_historyLease.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_historyLease.Width,
             btn_historyLease.Height, 15, 15));
+            btn_addLease.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, btn_addLease.Width,
+            btn_addLease.Height, 15, 15));
 
         }
 
