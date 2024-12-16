@@ -80,7 +80,7 @@
             this.lbl_firstName.AutoSize = true;
             this.lbl_firstName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_firstName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_firstName.ForeColor = System.Drawing.Color.Black;
+            this.lbl_firstName.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_firstName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbl_firstName.Location = new System.Drawing.Point(44, 126);
             this.lbl_firstName.Name = "lbl_firstName";
@@ -101,7 +101,7 @@
             this.lbl_LastName.AutoSize = true;
             this.lbl_LastName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_LastName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_LastName.ForeColor = System.Drawing.Color.Black;
+            this.lbl_LastName.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_LastName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbl_LastName.Location = new System.Drawing.Point(267, 126);
             this.lbl_LastName.Name = "lbl_LastName";
@@ -130,7 +130,7 @@
             this.lbl_MiddleName.AutoSize = true;
             this.lbl_MiddleName.BackColor = System.Drawing.Color.Transparent;
             this.lbl_MiddleName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_MiddleName.ForeColor = System.Drawing.Color.Black;
+            this.lbl_MiddleName.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_MiddleName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbl_MiddleName.Location = new System.Drawing.Point(477, 126);
             this.lbl_MiddleName.Name = "lbl_MiddleName";
@@ -143,7 +143,7 @@
             this.lbl_age.AutoSize = true;
             this.lbl_age.BackColor = System.Drawing.Color.Transparent;
             this.lbl_age.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_age.ForeColor = System.Drawing.Color.Black;
+            this.lbl_age.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_age.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbl_age.Location = new System.Drawing.Point(77, 202);
             this.lbl_age.Name = "lbl_age";
@@ -172,7 +172,7 @@
             this.lbl_email.AutoSize = true;
             this.lbl_email.BackColor = System.Drawing.Color.Transparent;
             this.lbl_email.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_email.ForeColor = System.Drawing.Color.Black;
+            this.lbl_email.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_email.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbl_email.Location = new System.Drawing.Point(477, 202);
             this.lbl_email.Name = "lbl_email";
@@ -193,7 +193,7 @@
             this.lbl_contactNo.AutoSize = true;
             this.lbl_contactNo.BackColor = System.Drawing.Color.Transparent;
             this.lbl_contactNo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.lbl_contactNo.ForeColor = System.Drawing.Color.Black;
+            this.lbl_contactNo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_contactNo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbl_contactNo.Location = new System.Drawing.Point(267, 202);
             this.lbl_contactNo.Name = "lbl_contactNo";
@@ -228,7 +228,7 @@
             this.lbl_tenantFillup.AutoSize = true;
             this.lbl_tenantFillup.BackColor = System.Drawing.Color.Transparent;
             this.lbl_tenantFillup.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold);
-            this.lbl_tenantFillup.ForeColor = System.Drawing.Color.Black;
+            this.lbl_tenantFillup.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_tenantFillup.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lbl_tenantFillup.Location = new System.Drawing.Point(40, 16);
             this.lbl_tenantFillup.Name = "lbl_tenantFillup";

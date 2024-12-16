@@ -34,7 +34,6 @@
             this.btn_addTenantCancel = new System.Windows.Forms.Button();
             this.btn_addTenantSave = new System.Windows.Forms.Button();
             this.lbl_editRoomtenant = new System.Windows.Forms.Label();
-            this.text = new System.Windows.Forms.TextBox();
             this.lbl_editRoomroom = new System.Windows.Forms.Label();
             this.lbl_editRoomsubheader = new System.Windows.Forms.Label();
             this.lbl_header = new System.Windows.Forms.Label();
@@ -106,16 +105,6 @@
             this.lbl_editRoomtenant.Text = "Tenant:";
             this.lbl_editRoomtenant.Click += new System.EventHandler(this.lbl_editRoomtenant_Click);
             // 
-            // text
-            // 
-            this.text.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.text.Location = new System.Drawing.Point(121, 133);
-            this.text.Name = "text";
-            this.text.Size = new System.Drawing.Size(100, 26);
-            this.text.TabIndex = 27;
-            this.text.Visible = false;
-            this.text.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // lbl_editRoomroom
             // 
             this.lbl_editRoomroom.AutoSize = true;
@@ -175,7 +164,6 @@
             this.Controls.Add(this.btn_addTenantCancel);
             this.Controls.Add(this.btn_addTenantSave);
             this.Controls.Add(this.lbl_editRoomtenant);
-            this.Controls.Add(this.text);
             this.Controls.Add(this.lbl_editRoomroom);
             this.Controls.Add(this.lbl_editRoomsubheader);
             this.Controls.Add(this.lbl_header);
@@ -198,7 +186,6 @@
         private System.Windows.Forms.Button btn_addTenantCancel;
         private System.Windows.Forms.Button btn_addTenantSave;
         private System.Windows.Forms.Label lbl_editRoomtenant;
-        private System.Windows.Forms.TextBox text;
         private System.Windows.Forms.Label lbl_editRoomroom;
         private System.Windows.Forms.Label lbl_editRoomsubheader;
         private System.Windows.Forms.Label lbl_header;

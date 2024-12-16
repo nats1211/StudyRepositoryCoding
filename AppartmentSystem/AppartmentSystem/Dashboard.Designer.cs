@@ -54,10 +54,9 @@
             this.lbl_header.BackColor = System.Drawing.Color.Transparent;
             this.lbl_header.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_header.ForeColor = System.Drawing.Color.White;
-            this.lbl_header.Location = new System.Drawing.Point(711, 16);
-            this.lbl_header.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_header.Location = new System.Drawing.Point(533, 13);
             this.lbl_header.Name = "lbl_header";
-            this.lbl_header.Size = new System.Drawing.Size(267, 62);
+            this.lbl_header.Size = new System.Drawing.Size(211, 50);
             this.lbl_header.TabIndex = 0;
             this.lbl_header.Text = "Dashboard";
             // 
@@ -69,10 +68,9 @@
             this.btn_manageRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageRoom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_manageRoom.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_manageRoom.Location = new System.Drawing.Point(28, 135);
-            this.btn_manageRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_manageRoom.Location = new System.Drawing.Point(21, 198);
             this.btn_manageRoom.Name = "btn_manageRoom";
-            this.btn_manageRoom.Size = new System.Drawing.Size(213, 98);
+            this.btn_manageRoom.Size = new System.Drawing.Size(160, 80);
             this.btn_manageRoom.TabIndex = 1;
             this.btn_manageRoom.Text = "  Manage Room";
             this.btn_manageRoom.UseVisualStyleBackColor = false;
@@ -86,10 +84,9 @@
             this.btn_manageLeases.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_manageLeases.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_manageLeases.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_manageLeases.Location = new System.Drawing.Point(28, 257);
-            this.btn_manageLeases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_manageLeases.Location = new System.Drawing.Point(21, 297);
             this.btn_manageLeases.Name = "btn_manageLeases";
-            this.btn_manageLeases.Size = new System.Drawing.Size(213, 98);
+            this.btn_manageLeases.Size = new System.Drawing.Size(160, 80);
             this.btn_manageLeases.TabIndex = 2;
             this.btn_manageLeases.Text = "   Manage Leases";
             this.btn_manageLeases.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -104,10 +101,9 @@
             this.btn_financialData.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_financialData.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_financialData.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_financialData.Location = new System.Drawing.Point(28, 380);
-            this.btn_financialData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_financialData.Location = new System.Drawing.Point(21, 397);
             this.btn_financialData.Name = "btn_financialData";
-            this.btn_financialData.Size = new System.Drawing.Size(213, 98);
+            this.btn_financialData.Size = new System.Drawing.Size(160, 80);
             this.btn_financialData.TabIndex = 3;
             this.btn_financialData.Text = "  Financial Data";
             this.btn_financialData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -122,10 +118,9 @@
             this.btn_AssignMaintenance.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AssignMaintenance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_AssignMaintenance.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_AssignMaintenance.Location = new System.Drawing.Point(28, 506);
-            this.btn_AssignMaintenance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_AssignMaintenance.Location = new System.Drawing.Point(21, 499);
             this.btn_AssignMaintenance.Name = "btn_AssignMaintenance";
-            this.btn_AssignMaintenance.Size = new System.Drawing.Size(213, 98);
+            this.btn_AssignMaintenance.Size = new System.Drawing.Size(160, 80);
             this.btn_AssignMaintenance.TabIndex = 4;
             this.btn_AssignMaintenance.Text = "Track And Assign Maintenance";
             this.btn_AssignMaintenance.UseVisualStyleBackColor = false;
@@ -142,9 +137,8 @@
             this.panel_headDashboard.Controls.Add(this.lbl_admin);
             this.panel_headDashboard.Controls.Add(this.lbl_header);
             this.panel_headDashboard.Location = new System.Drawing.Point(0, 0);
-            this.panel_headDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel_headDashboard.Name = "panel_headDashboard";
-            this.panel_headDashboard.Size = new System.Drawing.Size(1612, 87);
+            this.panel_headDashboard.Size = new System.Drawing.Size(1209, 71);
             this.panel_headDashboard.TabIndex = 9;
             this.panel_headDashboard.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_headDashboard_Paint);
             // 
@@ -152,10 +146,9 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.Location = new System.Drawing.Point(4, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 76);
+            this.label1.Size = new System.Drawing.Size(71, 62);
             this.label1.TabIndex = 6;
             // 
             // lbl_admin
@@ -164,10 +157,9 @@
             this.lbl_admin.BackColor = System.Drawing.Color.Transparent;
             this.lbl_admin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_admin.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbl_admin.Location = new System.Drawing.Point(104, 16);
-            this.lbl_admin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_admin.Location = new System.Drawing.Point(78, 13);
             this.lbl_admin.Name = "lbl_admin";
-            this.lbl_admin.Size = new System.Drawing.Size(148, 54);
+            this.lbl_admin.Size = new System.Drawing.Size(120, 45);
             this.lbl_admin.TabIndex = 5;
             this.lbl_admin.Text = "Admin";
             // 
@@ -180,12 +172,11 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(296, 111);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(222, 90);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1019, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(764, 236);
             this.dataGridView1.TabIndex = 11;
             // 
             // panel1
@@ -200,19 +191,17 @@
             this.panel1.Controls.Add(this.btn_financialData);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(268, 843);
+            this.panel1.Size = new System.Drawing.Size(201, 609);
             this.panel1.TabIndex = 12;
             // 
             // btn_tenantProfile
             // 
             this.btn_tenantProfile.BackColor = System.Drawing.Color.LightCyan;
             this.btn_tenantProfile.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tenantProfile.Location = new System.Drawing.Point(28, 646);
-            this.btn_tenantProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_tenantProfile.Location = new System.Drawing.Point(21, 90);
             this.btn_tenantProfile.Name = "btn_tenantProfile";
-            this.btn_tenantProfile.Size = new System.Drawing.Size(213, 98);
+            this.btn_tenantProfile.Size = new System.Drawing.Size(160, 80);
             this.btn_tenantProfile.TabIndex = 5;
             this.btn_tenantProfile.Text = "Tenant Profiling";
             this.btn_tenantProfile.UseVisualStyleBackColor = false;
@@ -225,10 +214,9 @@
             this.lbl_motto.BackColor = System.Drawing.Color.Transparent;
             this.lbl_motto.Font = new System.Drawing.Font("Calisto MT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_motto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.lbl_motto.Location = new System.Drawing.Point(674, 614);
-            this.lbl_motto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_motto.Location = new System.Drawing.Point(506, 499);
             this.lbl_motto.Name = "lbl_motto";
-            this.lbl_motto.Size = new System.Drawing.Size(361, 170);
+            this.lbl_motto.Size = new System.Drawing.Size(271, 138);
             this.lbl_motto.TabIndex = 14;
             this.lbl_motto.Text = "You Live, We Provide";
             this.lbl_motto.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -239,20 +227,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            this.label3.Location = new System.Drawing.Point(569, 456);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(427, 370);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(567, 220);
+            this.label3.Size = new System.Drawing.Size(425, 179);
             this.label3.TabIndex = 15;
             // 
             // Frm_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1344, 843);
+            this.ClientSize = new System.Drawing.Size(1008, 609);
             this.Controls.Add(this.lbl_motto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel_headDashboard);
@@ -260,7 +247,6 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Frm_Dashboard";
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

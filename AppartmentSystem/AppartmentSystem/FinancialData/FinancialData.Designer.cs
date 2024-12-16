@@ -114,7 +114,7 @@
             this.btn_fdPaid.Name = "btn_fdPaid";
             this.btn_fdPaid.Size = new System.Drawing.Size(105, 46);
             this.btn_fdPaid.TabIndex = 17;
-            this.btn_fdPaid.Text = "    Paid";
+            this.btn_fdPaid.Text = "      Billing";
             this.btn_fdPaid.UseVisualStyleBackColor = false;
             this.btn_fdPaid.Click += new System.EventHandler(this.btn_fdPaid_Click);
             // 
