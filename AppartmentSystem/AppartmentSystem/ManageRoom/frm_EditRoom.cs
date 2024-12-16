@@ -72,7 +72,7 @@ namespace AppartmentSystem.ManageRoom
                 string tenantName = cb_TenantName.Text;
                 int rent = Convert.ToInt32(txt_editRoomprice.Text);
 
-                bool successEdit = add.EditRoom(roomNumber, tenantName, rent);
+                bool successEdit = add.EditRoom(roomNumber, tenantName, rent, dateTime);
                 bool logs = add.SaveLog(action, roomNumber, dateTime);
 
                 if (successEdit)

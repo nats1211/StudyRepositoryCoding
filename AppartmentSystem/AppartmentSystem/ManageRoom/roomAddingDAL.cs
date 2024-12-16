@@ -159,11 +159,11 @@ namespace AppartmentSystem.ManageRoom
             }
         }
 
-        public bool EditRoom(string roomId, string tenantName, double room_price)
+        public bool EditRoom(string roomId, string tenantName, double room_price, DateTime leaseDate)
         {
             string roomQuery =   @"UPDATE room SET room_price = @room_price, tenant_name = @tenant_name WHERE room_id = @room_id";
             string tenantQuery = @"UPDATE tenant 
-                                 SET room_id = @room_id 
+                                 SET room_id = @room_id, move_in = @move_in 
                                  WHERE CONCAT(last_name, ' ', first_name, ' ', ISNULL(middle_name, '')) = @full_name";
 
             string leaseQuery = @"
@@ -200,6 +200,7 @@ namespace AppartmentSystem.ManageRoom
                     {
                         tenantCommand.Parameters.AddWithValue("@room_id", roomId);
                         tenantCommand.Parameters.AddWithValue("@full_name", tenantName);
+                        tenantCommand.Parameters.AddWithValue("@move_in", leaseDate);
                         tenantCommand.ExecuteNonQuery();
                     }
 

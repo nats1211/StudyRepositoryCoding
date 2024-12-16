@@ -176,7 +176,7 @@ namespace AppartmentSystem
         private void txt_contactNo_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            int maxCharAge = 10;
+            int maxCharAge = 9;
 
             if (char.IsWhiteSpace(e.KeyChar))
             {
