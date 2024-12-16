@@ -53,7 +53,7 @@ namespace AppartmentSystem.ManageLease
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             LeaseRepository lease = new LeaseRepository(connectionString);
 
-            string houseNumber = text.Text;
+            string houseNumber = textBox1.Text;
             string tenantName = cb_TenantName.Text;
             DateTime movedIn = DateTime.Now;
             DateTime moved_out = movedIn.AddMonths(1);
