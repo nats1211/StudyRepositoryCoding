@@ -210,7 +210,7 @@ namespace AppartmentSystem
                 {
                     return false;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return false;
                 }
@@ -328,12 +328,12 @@ namespace AppartmentSystem
                         transaction.Commit();
                         return true;
                     }
-                    catch (SqlException ex)
+                    catch (SqlException)
                     {
                         transaction.Rollback();
                         return false;
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         transaction.Rollback();
                         return false;
