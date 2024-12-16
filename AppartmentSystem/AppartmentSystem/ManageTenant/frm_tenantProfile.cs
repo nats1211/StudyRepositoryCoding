@@ -218,9 +218,23 @@ namespace AppartmentSystem
 
         private void btn_cancelManageTenant_Click(object sender, EventArgs e)
         {
-            Frm_Dashboard dashboard = new Frm_Dashboard();
-            dashboard.Show();
-            this.Close();
+
+            var sure = MessageBox.Show("Are you sure you want to cancel?", ""
+                , MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (DialogResult.OK == sure)
+            {
+
+                Frm_Dashboard dashboard = new Frm_Dashboard();
+                dashboard.Show();
+                this.Close();
+            }
+            else if (DialogResult.Cancel == sure)
+            {
+
+                return;
+            }
+            
         }
     }
 }
