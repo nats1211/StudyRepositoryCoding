@@ -222,6 +222,7 @@
             // lbl_infoml
             // 
             this.lbl_infoml.AutoSize = true;
+            this.lbl_infoml.BackColor = System.Drawing.Color.Transparent;
             this.lbl_infoml.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_infoml.Location = new System.Drawing.Point(26, 60);
             this.lbl_infoml.Name = "lbl_infoml";
