@@ -165,7 +165,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(272, 19);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(151, 20);
             this.dateTimePicker1.TabIndex = 17;
@@ -242,7 +242,7 @@
             this.btn_addLease.Name = "btn_addLease";
             this.btn_addLease.Size = new System.Drawing.Size(105, 45);
             this.btn_addLease.TabIndex = 26;
-            this.btn_addLease.Text = "       Edit";
+            this.btn_addLease.Text = "       Add";
             this.btn_addLease.UseVisualStyleBackColor = false;
             this.btn_addLease.Click += new System.EventHandler(this.btn_addLease_Click_1);
             // 

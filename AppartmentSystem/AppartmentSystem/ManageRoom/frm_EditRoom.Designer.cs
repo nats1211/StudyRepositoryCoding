@@ -81,11 +81,11 @@
             this.lbl_editRoomroom.AutoSize = true;
             this.lbl_editRoomroom.BackColor = System.Drawing.Color.Transparent;
             this.lbl_editRoomroom.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_editRoomroom.Location = new System.Drawing.Point(55, 169);
+            this.lbl_editRoomroom.Location = new System.Drawing.Point(26, 172);
             this.lbl_editRoomroom.Name = "lbl_editRoomroom";
-            this.lbl_editRoomroom.Size = new System.Drawing.Size(53, 20);
+            this.lbl_editRoomroom.Size = new System.Drawing.Size(81, 20);
             this.lbl_editRoomroom.TabIndex = 3;
-            this.lbl_editRoomroom.Text = "Room:";
+            this.lbl_editRoomroom.Text = "House No:";
             // 
             // textBox1
             // 
